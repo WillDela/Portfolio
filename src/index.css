@@ -34,10 +34,10 @@ body {
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-slate-700;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-slate-950 text-slate-100;
   }
 }
 
