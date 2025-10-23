@@ -18,7 +18,7 @@ export default function Projects() {
         'Coordinated Gemini AI for syllabus parsing and Google Calendar API',
       ],
       tech: ['React', 'TypeScript', 'Node.js', 'Auth0', 'Google Cloud', 'PostgreSQL'],
-      link: '#',
+      link: 'https://devpost.com/software/sylly',
     },
     {
       title: 'AI Garbage Classification System',
@@ -30,7 +30,7 @@ export default function Projects() {
         'Built modular prediction API with 94.7% accuracy on best classes',
       ],
       tech: ['Python', 'TensorFlow', 'Keras', 'NumPy', 'Scikit-learn'],
-      link: '#',
+      link: 'https://github.com/WillDela/AI_Garbage_Classification_System',
     },
   ];
 
@@ -58,54 +58,65 @@ export default function Projects() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
             >
-              <Card className="bg-slate-800/80 backdrop-blur-sm border-slate-700/50 overflow-hidden hover:border-cyan-500/50 transition-all duration-300 h-full group">
-                <div className="relative overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent" />
-                  {project.award && (
-                    <div className="absolute top-4 right-4 bg-yellow-500/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-2">
-                      <Trophy className="w-4 h-4 text-slate-900" />
-                      <span className="text-xs font-bold text-slate-900">Winner</span>
-                    </div>
-                  )}
-                </div>
-
-                <CardContent className="p-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
-                  {project.award && (
-                    <div className="flex items-center gap-2 text-yellow-400 text-sm mb-3">
-                      <Award className="w-4 h-4" />
-                      <span>{project.award}</span>
-                    </div>
-                  )}
-                  <p className="text-slate-300 mb-4">{project.description}</p>
-
-                  <div className="space-y-2 mb-4">
-                    {project.achievements.map((achievement, i) => (
-                      <div key={i} className="flex items-start gap-2 text-sm text-slate-400">
-                        <span className="text-cyan-400 mt-0.5">▸</span>
-                        <span>{achievement}</span>
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block h-full"
+              >
+                <Card className="bg-slate-800/80 backdrop-blur-sm border-slate-700/50 overflow-hidden hover:border-cyan-500/50 transition-all duration-300 h-full group cursor-pointer">
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent" />
+                    {project.award && (
+                      <div className="absolute top-4 right-4 bg-yellow-500/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-2">
+                        <Trophy className="w-4 h-4 text-slate-900" />
+                        <span className="text-xs font-bold text-slate-900">Winner</span>
                       </div>
-                    ))}
+                    )}
+                    <div className="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <ExternalLink className="w-4 h-4 text-cyan-400" />
+                      <span className="text-xs font-medium text-white">View Project</span>
+                    </div>
                   </div>
 
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech) => (
-                      <Badge
-                        key={tech}
-                        variant="secondary"
-                        className="bg-slate-700/50 text-slate-300 text-xs"
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+                  <CardContent className="p-6">
+                    <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
+                    {project.award && (
+                      <div className="flex items-center gap-2 text-yellow-400 text-sm mb-3">
+                        <Award className="w-4 h-4" />
+                        <span>{project.award}</span>
+                      </div>
+                    )}
+                    <p className="text-slate-300 mb-4">{project.description}</p>
+
+                    <div className="space-y-2 mb-4">
+                      {project.achievements.map((achievement, i) => (
+                        <div key={i} className="flex items-start gap-2 text-sm text-slate-400">
+                          <span className="text-cyan-400 mt-0.5">▸</span>
+                          <span>{achievement}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tech.map((tech) => (
+                        <Badge
+                          key={tech}
+                          variant="secondary"
+                          className="bg-slate-700/50 text-slate-300 text-xs"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </a>
             </motion.div>
           ))}
         </div>
