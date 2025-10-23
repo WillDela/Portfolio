@@ -3,11 +3,11 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { 
-  Github, 
-  Linkedin, 
-  Mail, 
-  MapPin, 
+import {
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
   Award,
   Briefcase,
   Code2,
@@ -17,7 +17,9 @@ import {
   ExternalLink,
   GraduationCap,
   Trophy,
-  Zap
+  Zap,
+  Menu,
+  X
 } from 'lucide-react';
 
 import Hero from './components/portfolio/Hero';
@@ -30,6 +32,7 @@ import Contact from './components/portfolio/Contact';
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState('hero');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { scrollYProgress } = useScroll();
 
   useEffect(() => {
@@ -57,6 +60,7 @@ export default function Portfolio() {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      setMobileMenuOpen(false);
     }
   };
 
@@ -68,8 +72,8 @@ export default function Portfolio() {
         style={{ scaleX: scrollYProgress }}
       />
 
-      {/* Navigation */}
-      <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-40 bg-slate-800/80 backdrop-blur-lg rounded-full px-6 py-3 border border-slate-700/50">
+      {/* Desktop Navigation */}
+      <nav className="hidden md:block fixed top-4 left-1/2 transform -translate-x-1/2 z-40 bg-slate-800/80 backdrop-blur-lg rounded-full px-6 py-3 border border-slate-700/50">
         <div className="flex gap-6">
           {['About', 'Experience', 'Projects', 'Skills', 'Leadership', 'Contact'].map((item) => (
             <button
@@ -86,6 +90,43 @@ export default function Portfolio() {
           ))}
         </div>
       </nav>
+
+      {/* Mobile Navigation */}
+      <div className="md:hidden fixed top-4 right-4 z-50">
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="bg-slate-800/80 backdrop-blur-lg rounded-full p-3 border border-slate-700/50 text-slate-300 hover:text-white transition-colors"
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          className="md:hidden fixed top-20 right-4 z-40 bg-slate-800/95 backdrop-blur-lg rounded-2xl p-6 border border-slate-700/50 shadow-2xl"
+        >
+          <div className="flex flex-col gap-4">
+            {['About', 'Experience', 'Projects', 'Skills', 'Leadership', 'Contact'].map((item) => (
+              <button
+                key={item}
+                onClick={() => scrollToSection(item.toLowerCase())}
+                className={`text-left text-base font-medium transition-colors py-2 ${
+                  activeSection === item.toLowerCase()
+                    ? 'text-cyan-400'
+                    : 'text-slate-300 hover:text-white'
+                }`}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+        </motion.div>
+      )}
 
       {/* Track Line Decoration */}
       <div className="fixed left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-cyan-500/20 to-transparent pointer-events-none" />
