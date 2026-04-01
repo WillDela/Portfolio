@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { motion, useScroll } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 import Hero from './components/portfolio/Hero';
@@ -10,91 +9,109 @@ import Skills from './components/portfolio/Skills';
 import Leadership from './components/portfolio/Leadership';
 import Contact from './components/portfolio/Contact';
 
+const NAV_ITEMS = ['About', 'Experience', 'Projects', 'Skills', 'Leadership', 'Contact'];
+
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState('hero');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { scrollYProgress } = useScroll();
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'experience', 'projects', 'skills', 'leadership', 'contact'];
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      setScrolled(window.scrollY > 60);
 
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
+      const sections = ['hero', ...NAV_ITEMS.map(i => i.toLowerCase())];
+      const mid = window.scrollY + window.innerHeight / 2;
+
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el) {
+          const { offsetTop, offsetHeight } = el;
+          if (mid >= offsetTop && mid < offsetTop + offsetHeight) {
+            setActiveSection(id);
             break;
           }
         }
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setMobileMenuOpen(false);
-    }
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    setMobileMenuOpen(false);
   };
 
   return (
-    <div className="relative bg-[#fdfbf7] min-h-screen font-sans text-forest-900 selection:bg-clay-500 selection:text-white overflow-hidden">
-      
-      {/* The Central Organic SVG Trunk */}
-      <svg 
-        className="fixed left-4 md:left-1/2 top-0 bottom-0 w-16 md:w-32 h-full transform -translate-x-1/2 pointer-events-none z-0 text-clay-800 opacity-15" 
-        preserveAspectRatio="none"
-        viewBox="0 0 100 100"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path 
-          d="M45,0 C55,10 40,25 48,40 C55,55 42,75 50,90 C55,95 40,98 30,100 L70,100 C60,98 45,95 50,90 C58,75 45,55 52,40 C60,25 45,10 55,0 Z" 
-          fill="currentColor" 
-        />
-        {/* Bark texture lines */}
-        <path d="M48,10 Q50,15 47,20 M52,30 Q54,40 50,50 M51,70 Q49,80 53,90 M49,15 Q47,25 50,35" stroke="#fdfbf7" strokeWidth="0.5" fill="none" opacity="0.3" vectorEffect="non-scaling-stroke" />
-      </svg>
+    <div className="relative bg-earth-50 min-h-screen font-sans text-forest-900">
 
-      {/* Minimalist Top Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 p-6 mix-blend-difference text-earth-50 font-medium">
-        <div className="flex justify-between items-center max-w-6xl mx-auto">
-          <span className="text-xl font-black tracking-tight select-none">W.D.</span>
-          <div className="hidden md:flex gap-8 text-sm font-black uppercase tracking-widest">
-            {['About', 'Experience', 'Projects', 'Leadership', 'Contact'].map((item) => (
+      {/* Subtle root background — connects hero tree to the rest of the page */}
+      <div
+        className="absolute left-1/2 -translate-x-1/2 pointer-events-none z-0 w-full max-w-3xl"
+        style={{ top: '90vh' }}
+        aria-hidden="true"
+      >
+        <svg viewBox="0 0 800 380" width="100%" height="380" preserveAspectRatio="xMidYMid meet">
+          <g opacity="0.055" stroke="#1e2d1e" fill="none" strokeLinecap="round">
+            <path d="M 400,0 C 397,45 403,90 400,135 C 397,180 403,225 400,270" strokeWidth="8" />
+            <path d="M 400,0 C 372,32 342,66 308,94 C 280,118 248,138 212,154" strokeWidth="5" />
+            <path d="M 400,0 C 428,32 458,66 492,94 C 520,118 552,138 588,154" strokeWidth="5" />
+            <path d="M 400,0 C 360,42 318,82 274,114 C 236,142 196,162 152,174" strokeWidth="3.5" />
+            <path d="M 400,0 C 440,42 482,82 526,114 C 564,142 604,162 648,174" strokeWidth="3.5" />
+            <path d="M 400,0 C 348,52 296,102 240,136 C 192,165 140,184 86,194" strokeWidth="2.5" />
+            <path d="M 400,0 C 452,52 504,102 560,136 C 608,165 660,184 714,194" strokeWidth="2.5" />
+          </g>
+        </svg>
+      </div>
+
+      {/* Nav */}
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled ? 'bg-earth-50/90 backdrop-blur-sm border-b border-forest-900/8' : ''
+        }`}
+      >
+        <div className="flex justify-between items-center max-w-6xl mx-auto px-6 py-5">
+          <button
+            onClick={() => scrollTo('hero')}
+            className="font-display font-bold text-xl text-forest-900 hover:text-clay-500 transition-colors tracking-tight"
+          >
+            W.D.
+          </button>
+          <div className="hidden md:flex gap-8">
+            {NAV_ITEMS.map((item) => (
               <button
                 key={item}
-                onClick={() => scrollToSection(item.toLowerCase())}
-                className="hover:text-clay-500 transition-colors"
-                style={{ textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}
+                onClick={() => scrollTo(item.toLowerCase())}
+                className={`text-sm font-medium tracking-wide transition-colors ${
+                  activeSection === item.toLowerCase()
+                    ? 'text-clay-500'
+                    : 'text-forest-900/60 hover:text-forest-900'
+                }`}
               >
                 {item}
               </button>
             ))}
           </div>
-          <button 
-            className="md:hidden hover:text-clay-500 transition-colors"
+          <button
+            className="md:hidden text-forest-900/70 hover:text-forest-900 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-forest-900 text-[#fdfbf7] flex flex-col items-center justify-center gap-8">
-          {['About', 'Experience', 'Projects', 'Leadership', 'Contact'].map((item) => (
+        <div className="fixed inset-0 z-40 bg-earth-50 flex flex-col items-center justify-center gap-10">
+          {NAV_ITEMS.map((item) => (
             <button
               key={item}
-              onClick={() => scrollToSection(item.toLowerCase())}
-              className="text-2xl font-black uppercase tracking-widest hover:text-clay-500 transition-colors"
+              onClick={() => scrollTo(item.toLowerCase())}
+              className="font-display font-bold text-3xl text-forest-900 hover:text-clay-500 transition-colors tracking-tight"
             >
               {item}
             </button>
@@ -102,14 +119,14 @@ export default function Portfolio() {
         </div>
       )}
 
-      {/* Sections Wrapper */}
-      <div className="relative z-10 w-full flex flex-col items-center">
-        <Hero scrollToSection={scrollToSection} />
+      {/* Sections */}
+      <div className="relative z-10">
+        <Hero scrollToSection={scrollTo} />
         <About />
-        <Leadership />
-        <Projects />
         <Experience />
+        <Projects />
         <Skills />
+        <Leadership />
         <Contact />
       </div>
     </div>

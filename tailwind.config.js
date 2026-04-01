@@ -29,16 +29,18 @@ export default {
           600: '#486548',
           700: '#3a503a',
           800: '#314131',
-          900: '#2a362a',
+          900: '#1e2d1e',
         },
         clay: {
           500: '#c58361',
-        }
+          600: '#b5724f',
+        },
       },
       fontFamily: {
-        sans: ['Outfit', 'system-ui', 'sans-serif'],
-      }
+        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+      },
     },
   },
   plugins: [],
-}
+};

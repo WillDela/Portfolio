@@ -1,21 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  font-family: 'Outfit', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color-scheme: light;
-  color: #2a362a;
-  background-color: #fdfbf7;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
 html {
   scroll-behavior: smooth;
@@ -23,11 +10,11 @@ html {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
   background-color: #fdfbf7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
@@ -35,35 +22,32 @@ body {
 }
 
 @layer base {
-  * {
-    @apply border-earth-200;
-  }
   body {
     @apply bg-earth-50 text-forest-900;
+    font-family: 'DM Sans', system-ui, sans-serif;
   }
 }
 
-/* Custom CSS Variables for UI components */
+/* shadcn/ui CSS variables */
 :root {
-  /* Earthy Light Theme */
   --background: 40 40% 98%;
-  --foreground: 120 13% 19%;
+  --foreground: 120 13% 10%;
   --card: 0 0% 100%;
-  --card-foreground: 120 13% 19%;
+  --card-foreground: 120 13% 10%;
   --popover: 0 0% 100%;
-  --popover-foreground: 120 13% 19%;
+  --popover-foreground: 120 13% 10%;
   --primary: 120 16% 43%;
   --primary-foreground: 40 40% 98%;
   --secondary: 40 33% 94%;
-  --secondary-foreground: 120 13% 19%;
+  --secondary-foreground: 120 13% 10%;
   --muted: 40 33% 94%;
   --muted-foreground: 120 10% 40%;
   --accent: 40 33% 94%;
-  --accent-foreground: 120 13% 19%;
+  --accent-foreground: 120 13% 10%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 210 40% 98%;
   --border: 40 33% 88%;
   --input: 40 33% 88%;
   --ring: 120 16% 43%;
-  --radius: 1rem;
+  --radius: 0.25rem;
 }
