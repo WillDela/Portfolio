@@ -35,6 +35,9 @@ export default {
           500: '#c58361',
           600: '#b5724f',
         },
+        moss: {
+          500: '#4a7c59',
+        },
       },
       fontFamily: {
         display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
