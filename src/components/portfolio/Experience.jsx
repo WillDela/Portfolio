@@ -50,91 +50,86 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="relative py-32 px-4 bg-earth-50/50">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-6 bg-gradient-to-r from-forest-900 to-forest-700 bg-clip-text text-transparent">
-            Experience & Education
-          </h2>
-          <div className="h-1.5 w-24 bg-gradient-to-r from-forest-500 to-clay-500 mb-16 rounded-full" />
-        </motion.div>
+    <section id="experience" className="relative py-32 px-4 w-full max-w-6xl mx-auto">
+      <div className="mb-24 text-center md:text-right md:mr-8 lg:mr-0 md:pr-[50%] md:translate-x-[120px]">
+        <h2 className="text-4xl md:text-5xl font-black text-forest-900 mb-6 uppercase tracking-tight">
+          Experience
+        </h2>
+        <div className="h-px w-24 bg-forest-900 mx-auto md:mx-0 opacity-20" />
+      </div>
 
-        <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-forest-400 via-clay-400 to-earth-300 rounded-full" />
+      <div className="relative z-10 space-y-32 pb-16">
+        {experiences.map((exp, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className={`flex flex-col md:flex-row items-center relative ${
+              exp.side === 'left' ? '' : 'md:flex-row-reverse'
+            }`}
+          >
+            {/* Tree Node / Anchor */}
+            <div className="absolute left-4 md:left-1/2 top-4 w-3 h-3 rounded-full bg-forest-900 transform -translate-x-[5px] md:-translate-x-[6px] hidden md:block" />
 
-          <div className="space-y-12">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`relative flex items-center ${
-                  exp.side === 'left' ? 'md:flex-row' : 'md:flex-row-reverse'
-                } flex-col md:gap-8`}
-              >
-                {/* Timeline Marker */}
-                <div className="absolute left-8 md:left-1/2 w-5 h-5 -ml-2.5 rounded-full bg-gradient-to-r from-forest-500 to-clay-500 border-4 border-[#fdfbf7] z-10 shadow-sm" />
+            {/* Empty space for the opposite side */}
+            <div className="hidden md:block w-1/2" />
 
-                <div className="w-full md:w-5/12">
-                  <Card className="bg-white/80 backdrop-blur-md shadow-lg shadow-forest-900/5 border-earth-200 hover:border-forest-400 transition-all duration-300 ml-16 md:ml-0 rounded-3xl">
-                    <CardContent className="p-6">
-                      <div className="flex items-start gap-3 mb-4">
-                        <div className={`p-3 rounded-xl ${
-                          exp.type === 'education' 
-                            ? 'bg-clay-500/10' 
-                            : 'bg-forest-500/10'
-                        }`}>
-                          {exp.type === 'education' ? (
-                            <GraduationCap className="w-6 h-6 text-clay-600" />
-                          ) : (
-                            <Briefcase className="w-6 h-6 text-forest-600" />
-                          )}
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="text-xl font-black text-forest-900 mb-1">{exp.title}</h3>
-                          <p className="text-forest-600 font-bold">{exp.company}</p>
-                          <div className="flex items-center gap-2 text-sm text-forest-700/80 font-medium mt-2">
-                            <Calendar className="w-4 h-4" />
-                            {exp.period}
-                          </div>
-                        </div>
-                      </div>
-
-                      <ul className="space-y-2 mb-6">
-                        {exp.achievements.map((achievement, i) => (
-                          <li key={i} className="text-sm text-forest-800 font-medium flex items-start gap-2 leading-relaxed">
-                            <span className="text-forest-500 mt-1 font-bold">•</span>
-                            <span>{achievement}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      <div className="flex flex-wrap gap-2">
-                        {exp.skills.map((skill) => (
-                          <Badge
-                            key={skill}
-                            variant="secondary"
-                            className="bg-earth-100 text-forest-700 hover:bg-earth-200 border border-earth-200 transition-colors"
-                          >
-                            {skill}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
+            {/* Content Side */}
+            <div className="w-full md:w-1/2 relative space-y-6">
+              {/* Branch Line */}
+              <div 
+                className={`hidden md:block absolute top-4 w-12 lg:w-24 h-px bg-forest-900 ${
+                  exp.side === 'left' ? '-right-12 lg:-right-24' : '-left-12 lg:-left-24'
+                }`} 
+              />
+              
+              <div className={`${exp.side === 'left' ? 'md:pr-12 lg:pr-24 md:text-right' : 'md:pl-12 lg:pl-24 pl-12'}`}>
+                <div className="flex items-center gap-4 mb-4 ${exp.side === 'left' ? 'md:flex-row-reverse' : ''}">
+                  <div className={`p-4 rounded-full border border-forest-900/20 ${exp.type === 'education' ? 'bg-earth-100' : 'bg-white'}`}>
+                    {exp.type === 'education' ? (
+                      <GraduationCap className="w-6 h-6 text-clay-600" />
+                    ) : (
+                      <Briefcase className="w-6 h-6 text-forest-900" />
+                    )}
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-black text-forest-900 mb-1">{exp.title}</h3>
+                    <p className="text-clay-600 font-bold tracking-widest uppercase text-xs">{exp.company}</p>
+                  </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+
+                <div className={`flex items-center gap-2 text-sm text-forest-800 font-bold mb-6 ${exp.side === 'left' ? 'md:justify-end' : ''}`}>
+                  <Calendar className="w-4 h-4" />
+                  <span>{exp.period}</span>
+                  <span className="mx-2 opacity-20">|</span>
+                  <span>{exp.location}</span>
+                </div>
+
+                <ul className="space-y-4 mb-8">
+                  {exp.achievements.map((achievement, i) => (
+                    <li key={i} className={`text-lg text-forest-800 font-medium flex gap-3 ${exp.side === 'left' ? 'md:flex-row-reverse' : ''}`}>
+                      <span className="text-forest-900/30 font-black mt-1">—</span>
+                      <span>{achievement}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className={`flex flex-wrap gap-2 ${exp.side === 'left' ? 'md:justify-end' : ''}`}>
+                  {exp.skills.map((skill) => (
+                    <span 
+                      key={skill}
+                      className="text-xs font-bold uppercase tracking-widest text-forest-900 border border-forest-900/20 px-3 py-1 bg-white"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

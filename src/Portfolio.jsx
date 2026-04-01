@@ -65,80 +65,60 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="relative bg-[#fdfbf7] min-h-screen font-sans text-forest-900 overflow-hidden">
-      {/* Progress Bar */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-clay-500 via-forest-400 to-earth-400 origin-left z-50 rounded-r-full"
-        style={{ scaleX: scrollYProgress }}
-      />
+    <div className="relative bg-earth-50 min-h-screen font-sans text-forest-900 selection:bg-clay-500 selection:text-white">
+      
+      {/* The Central Trunk */}
+      <div className="fixed left-4 md:left-1/2 top-0 bottom-0 w-px bg-forest-900 opacity-30 transform md:-translate-x-1/2 pointer-events-none z-0" />
 
-      {/* Desktop Navigation */}
-      <nav className="hidden md:block fixed top-4 left-1/2 transform -translate-x-1/2 z-40 bg-white/70 backdrop-blur-xl shadow-lg shadow-forest-900/5 rounded-full px-6 py-3 border border-earth-200">
-        <div className="flex gap-6">
-          {['About', 'Experience', 'Projects', 'Skills', 'Leadership', 'Contact'].map((item) => (
-            <button
-              key={item}
-              onClick={() => scrollToSection(item.toLowerCase())}
-              className={`text-sm font-medium transition-colors ${
-                activeSection === item.toLowerCase()
-                  ? 'text-forest-600 font-bold bg-earth-100 px-3 py-1 rounded-full'
-                  : 'text-forest-700 hover:text-clay-500 hover:bg-earth-50 px-3 py-1 rounded-full'
-              }`}
-            >
-              {item}
-            </button>
-          ))}
-        </div>
-      </nav>
-
-      {/* Mobile Navigation */}
-      <div className="md:hidden fixed top-4 right-4 z-50">
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="bg-white/70 shadow-lg shadow-forest-900/5 backdrop-blur-xl rounded-full p-3 border border-earth-200 text-forest-700 hover:text-forest-900 transition-colors"
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          className="md:hidden fixed top-20 right-4 z-40 bg-white/90 backdrop-blur-xl rounded-2xl p-6 border border-earth-200 shadow-2xl"
-        >
-          <div className="flex flex-col gap-4">
-            {['About', 'Experience', 'Projects', 'Skills', 'Leadership', 'Contact'].map((item) => (
+      {/* Minimalist Top Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 p-6 mix-blend-difference text-earth-50 font-medium">
+        <div className="flex justify-between items-center max-w-6xl mx-auto">
+          <span className="text-xl font-bold tracking-tight select-none">W.D.</span>
+          <div className="hidden md:flex gap-8 text-sm uppercase tracking-widest">
+            {['About', 'Experience', 'Projects', 'Leadership', 'Contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className={`text-left text-base font-medium transition-colors py-2 ${
-                  activeSection === item.toLowerCase()
-                    ? 'text-forest-600 font-bold bg-earth-100 rounded-lg px-2'
-                    : 'text-forest-700 hover:text-clay-500 hover:bg-earth-50 rounded-lg px-2'
-                }`}
+                className="hover:text-clay-500 transition-colors"
               >
                 {item}
               </button>
             ))}
           </div>
-        </motion.div>
+          <button 
+            className="md:hidden hover:text-clay-500 transition-colors"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-40 bg-forest-900 text-earth-50 flex flex-col items-center justify-center gap-8">
+          {['About', 'Experience', 'Projects', 'Leadership', 'Contact'].map((item) => (
+            <button
+              key={item}
+              onClick={() => scrollToSection(item.toLowerCase())}
+              className="text-2xl uppercase tracking-widest hover:text-clay-500 transition-colors"
+            >
+              {item}
+            </button>
+          ))}
+        </div>
       )}
 
-      {/* Subtle background noise/texture can be added here if desired, removing track lines */}
-      <div className="fixed inset-0 pointer-events-none opacity-[0.03] mix-blend-multiply" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
-
-      {/* Sections */}
-      <Hero scrollToSection={scrollToSection} />
-      <About />
-      <Experience />
-      <Projects />
-      <Skills />
-      <Leadership />
-      <Contact />
+      {/* Sections Wrapper */}
+      <div className="relative z-10 w-full flex flex-col items-center">
+        <Hero scrollToSection={scrollToSection} />
+        <About />
+        <Leadership />
+        <Projects />
+        <Experience />
+        <Skills />
+        <Contact />
+      </div>
     </div>
   );
 }
