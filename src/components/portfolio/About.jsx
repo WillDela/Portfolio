@@ -20,13 +20,21 @@ export default function About() {
           <img
             src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68f98dc8386ebb34a4e98146/72d1e68b5_photo.jpg"
             alt="William Delaosa"
-            className="w-full aspect-[4/5] object-cover border-2 border-forest-900"
+            className="w-full aspect-[4/5] object-cover border-2 border-forest-900 rounded-bl-[100px] rounded-tr-[100px]"
             onError={(e) => {
               e.target.src = "https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?w=800&q=80";
             }}
           />
-          {/* Decorative Branch Line */}
-          <div className="hidden md:block absolute top-16 -right-24 w-24 h-px bg-forest-900" />
+          {/* Organic Curved Branch */}
+          <div className="hidden md:block absolute top-32 -right-24 w-24 h-12 text-forest-900 opacity-60">
+            <svg width="100%" height="100%" viewBox="0 0 100 20" preserveAspectRatio="none">
+              <path d="M0,10 Q25,25 50,10 T100,10" stroke="currentColor" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
+            </svg>
+          </div>
+          {/* Subtle Leaf Embed */}
+          <svg className="absolute -top-6 -right-4 w-12 h-12 text-clay-500 opacity-80" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 22S2 16 2 8c0-4 3-7 7-7 2.5 0 4.5 1.5 6 3 1.5-1.5 3.5-3 6-3 4 0 7 3 7 7 0 8-10 14-10 14z" />
+          </svg>
         </motion.div>
 
         {/* Right Side: Content (Right of trunk) */}

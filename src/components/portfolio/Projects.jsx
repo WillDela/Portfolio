@@ -67,8 +67,16 @@ export default function Projects() {
                     <div className="absolute inset-0 bg-forest-900/10 group-hover:bg-transparent transition-colors duration-500" />
                   </div>
                 </a>
-                {/* Branch Line */}
-                <div className={`hidden md:block absolute top-48 w-24 h-px bg-forest-900 ${isLeft ? '-right-24' : '-left-24'}`} />
+                {/* Organic Curved Branch */}
+                <div className={`hidden md:block absolute top-48 w-24 h-12 text-forest-900 opacity-60 ${isLeft ? '-right-24' : '-left-24'}`}>
+                  <svg width="100%" height="100%" viewBox="0 0 100 20" preserveAspectRatio="none">
+                    <path d="M0,10 Q25,25 50,10 T100,10" stroke="currentColor" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
+                  </svg>
+                </div>
+                {/* Subtle Leaf Embed */}
+                <svg className={`absolute -top-6 ${isLeft ? '-right-4 rotate-0' : '-left-4 -rotate-90'} w-10 h-10 text-clay-500 opacity-80 z-10`} viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 22S2 16 2 8c0-4 3-7 7-7 2.5 0 4.5 1.5 6 3 1.5-1.5 3.5-3 6-3 4 0 7 3 7 7 0 8-10 14-10 14z" />
+                </svg>
               </div>
 
               {/* Content Container */}

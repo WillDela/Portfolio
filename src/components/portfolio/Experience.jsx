@@ -78,12 +78,20 @@ export default function Experience() {
 
             {/* Content Side */}
             <div className="w-full md:w-1/2 relative space-y-6">
-              {/* Branch Line */}
+              {/* Organic Curved Branch */}
               <div 
-                className={`hidden md:block absolute top-4 w-12 lg:w-24 h-px bg-forest-900 ${
+                className={`hidden md:block absolute top-4 w-12 lg:w-24 h-8 text-forest-900 opacity-60 ${
                   exp.side === 'left' ? '-right-12 lg:-right-24' : '-left-12 lg:-left-24'
                 }`} 
-              />
+              >
+                <svg width="100%" height="100%" viewBox="0 0 100 20" preserveAspectRatio="none">
+                  <path d="M0,10 Q25,25 50,10 T100,10" stroke="currentColor" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
+                </svg>
+              </div>
+              {/* Subtle Leaf Embed */}
+              <svg className={`absolute top-0 ${exp.side === 'left' ? '-right-6 rotate-0' : '-left-6 -rotate-90'} w-8 h-8 text-clay-500 opacity-80 z-10 hidden md:block`} viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 22S2 16 2 8c0-4 3-7 7-7 2.5 0 4.5 1.5 6 3 1.5-1.5 3.5-3 6-3 4 0 7 3 7 7 0 8-10 14-10 14z" />
+              </svg>
               
               <div className={`${exp.side === 'left' ? 'md:pr-12 lg:pr-24 md:text-right' : 'md:pl-12 lg:pl-24 pl-12'}`}>
                 <div className="flex items-center gap-4 mb-4 ${exp.side === 'left' ? 'md:flex-row-reverse' : ''}">

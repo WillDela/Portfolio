@@ -21,7 +21,23 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="relative py-32 px-4 w-full max-w-6xl mx-auto">
+    <section id="contact" className="relative py-32 px-4 w-full max-w-6xl mx-auto overflow-hidden">
+      
+      {/* SVG Root System */}
+      <svg 
+        className="absolute left-1/2 top-0 w-full max-w-[800px] h-[400px] text-clay-800 opacity-20 transform -translate-x-1/2 pointer-events-none z-0" 
+        viewBox="0 0 800 400" 
+        preserveAspectRatio="none"
+      >
+        <path d="M400,0 C400,100 400,200 400,300" stroke="currentColor" strokeWidth="30" fill="none" strokeLinecap="round" />
+        <path d="M400,80 C300,150 100,250 -50,400" stroke="currentColor" strokeWidth="16" fill="none" strokeLinecap="round" />
+        <path d="M400,80 C500,150 700,250 850,400" stroke="currentColor" strokeWidth="16" fill="none" strokeLinecap="round" />
+        <path d="M350,115 C200,200 50,250 -50,300" stroke="currentColor" strokeWidth="10" fill="none" strokeLinecap="round" />
+        <path d="M450,115 C600,200 750,250 850,300" stroke="currentColor" strokeWidth="10" fill="none" strokeLinecap="round" />
+        <path d="M380,180 C250,300 200,350 100,400" stroke="currentColor" strokeWidth="12" fill="none" strokeLinecap="round" />
+        <path d="M420,180 C550,300 600,350 700,400" stroke="currentColor" strokeWidth="12" fill="none" strokeLinecap="round" />
+      </svg>
+
       <div className="relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

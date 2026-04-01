@@ -6,9 +6,39 @@ export default function Hero({ scrollToSection }) {
   return (
     <section id="hero" className="relative min-h-screen flex flex-col justify-center items-center px-4 w-full max-w-6xl mx-auto pt-20">
       
+      {/* Flat SVG Canopy Background */}
+      <div className="absolute top-0 left-0 w-full h-[800px] overflow-hidden pointer-events-none z-0">
+        <motion.svg 
+          initial={{ y: -50, opacity: 0 }} 
+          animate={{ y: 0, opacity: 1 }} 
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          width="100%" 
+          height="100%" 
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {/* Back layer */}
+          <g fill="#2a362a" opacity="0.04">
+            <circle cx="10%" cy="-10%" r="400" />
+            <circle cx="50%" cy="-20%" r="550" />
+            <circle cx="90%" cy="-5%" r="450" />
+          </g>
+          {/* Mid layer */}
+          <g fill="#2a362a" opacity="0.06">
+            <circle cx="25%" cy="-15%" r="350" />
+            <circle cx="70%" cy="-10%" r="400" />
+          </g>
+          {/* Front layer */}
+          <g fill="#2a362a" opacity="0.08">
+            <circle cx="40%" cy="-20%" r="300" />
+            <circle cx="85%" cy="-15%" r="250" />
+            <circle cx="-5%" cy="-5%" r="200" />
+          </g>
+        </motion.svg>
+      </div>
+
       {/* Minimal Top-left details connecting to the trunk concept */}
       <motion.div
-        className="absolute top-32 left-8 md:left-[50%] md:ml-8 flex flex-col gap-2"
+        className="absolute top-32 left-8 md:left-[50%] md:ml-8 flex flex-col gap-2 z-10"
         initial={{ opacity: 0, x: -10 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.5 }}
@@ -48,7 +78,7 @@ export default function Hero({ scrollToSection }) {
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.6 }}
-              className="hidden md:flex w-24 h-24 rounded-full bg-clay-500 items-center justify-center text-earth-50 text-3xl shrink-0 -translate-y-4"
+              className="hidden md:flex w-24 h-24 rounded-full bg-clay-500 items-center justify-center text-[#fdfbf7] text-3xl shrink-0 -translate-y-4 shadow-sm"
             >
               🏃🏽‍♂️
             </motion.div>
@@ -73,16 +103,16 @@ export default function Hero({ scrollToSection }) {
           >
             <button
               onClick={() => scrollToSection('projects')}
-              className="group flex items-center gap-2 hover:text-clay-500 transition-colors text-left"
+              className="group flex items-center gap-3 hover:text-clay-500 transition-colors text-left"
             >
-              <span className="w-6 h-px bg-forest-900 group-hover:bg-clay-500 transition-colors block" />
+              <span className="w-8 h-1 bg-forest-900 group-hover:bg-clay-500 transition-colors block" />
               View Work
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className="group flex items-center gap-2 hover:text-clay-500 transition-colors text-left"
+              className="group flex items-center gap-3 hover:text-clay-500 transition-colors text-left"
             >
-              <span className="w-6 h-px bg-forest-900 group-hover:bg-clay-500 transition-colors block" />
+              <span className="w-8 h-1 bg-forest-900 group-hover:bg-clay-500 transition-colors block" />
               Get In Touch
             </button>
           </motion.div>
