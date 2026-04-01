@@ -1,80 +1,83 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+const STATS = [
+  { value: '100+', label: 'Active Members' },
+  { value: '800+', label: 'Social Followers' },
+  { value: '50+', label: 'First Race Finishers' },
+  { value: '3–4×', label: 'Weekly Group Runs' },
+];
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.7, delay, ease: 'easeOut' },
+});
+
 export default function Leadership() {
   return (
-    <section id="leadership" className="relative py-32 px-4 w-full max-w-6xl mx-auto">
-      
-      {/* Tree Node / Anchor */}
-      <div className="absolute left-4 md:left-1/2 top-48 w-3 h-3 rounded-full bg-forest-900 transform -translate-x-[5px] md:-translate-x-[6px] z-10 hidden md:block" />
-      
-      <div className="grid md:grid-cols-2 gap-12 md:gap-24 items-center">
-        
-        {/* Left Side: Content (Left of trunk) */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="space-y-8 md:pr-8 md:text-right order-2 md:order-1"
-        >
-          <div className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-black text-forest-900 mb-6 uppercase tracking-tight">
-              Leadership
-            </h2>
-            <div className="h-px w-full bg-forest-900 opacity-20" />
-          </div>
+    <section id="leadership" className="py-28 px-6">
+      <div className="max-w-6xl mx-auto">
 
-          <div>
-            <h3 className="text-2xl font-black text-forest-900 mb-2">Panthers Run Club</h3>
-            <p className="text-clay-600 font-bold mb-6 tracking-widest uppercase text-sm">President & Co-Founder</p>
-            <p className="text-xl text-forest-800 leading-relaxed font-medium mb-6">
-              Co-founded and scaled Panthers Run Club from zero to 100+ active members with 800+ social media followers 
-              in under 2 years, creating FIU's premier running community.
-            </p>
-            <p className="text-xl text-forest-800 leading-relaxed font-medium">
-              Leading 3-4 weekly group runs and organizing 3-5 social events per semester while building partnerships 
-              with FIU organizations. Successfully guided 50+ beginning runners to complete their first 5K races to 
-              half/full marathons through customized workouts and pacing strategies.
-            </p>
-          </div>
+        <motion.div {...fadeUp()} className="mb-16">
+          <p className="text-xs font-bold tracking-widest uppercase text-clay-500 mb-3">05</p>
+          <h2 className="font-display font-bold text-5xl md:text-6xl text-forest-900 tracking-tight leading-none">
+            Community
+          </h2>
+          <div className="h-px w-16 bg-forest-900/20 mt-6" />
+        </motion.div>
 
-          <div className="flex flex-col md:items-end gap-y-4 pt-8 border-t border-forest-900/20">
-            <div className="flex gap-4">
-              {['Community Building', 'Coaching', 'Event Planning'].map((skill) => (
-                <span key={skill} className="text-sm font-bold uppercase tracking-widest text-clay-500">
-                  {skill}
-                </span>
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
+
+          {/* Content */}
+          <motion.div {...fadeUp(0.15)} className="space-y-7 order-2 md:order-1">
+            <div>
+              <h3 className="font-display font-bold text-3xl text-forest-900 tracking-tight">
+                Panthers Run Club
+              </h3>
+              <p className="text-clay-500 font-semibold text-sm mt-1 tracking-wide">
+                President & Co-Founder · Oct 2023 – Present
+              </p>
+            </div>
+
+            <p className="text-lg text-forest-800 leading-relaxed">
+              Co-founded FIU's premier running community from zero — building it to 100+ active members
+              with 800+ social media followers in under two years. We run 3–4 times a week, and I've
+              built partnerships with FIU organizations to keep it growing.
+            </p>
+            <p className="text-lg text-forest-800 leading-relaxed">
+              The most meaningful part: guiding 50+ complete beginners through their first 5K, and
+              watching some of them go on to finish half and full marathons. Writing customized workouts
+              and pacing strategies for runners of every level.
+            </p>
+
+            {/* Stats grid */}
+            <div className="grid grid-cols-2 gap-6 pt-6 border-t border-forest-900/15">
+              {STATS.map((stat) => (
+                <div key={stat.label}>
+                  <p className="font-display font-bold text-3xl text-forest-900">{stat.value}</p>
+                  <p className="text-xs font-bold uppercase tracking-widest text-clay-500 mt-1">
+                    {stat.label}
+                  </p>
+                </div>
               ))}
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
 
-        {/* Right Side: Image (Right of trunk) */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="relative md:pl-8 order-1 md:order-2"
-        >
-          <img
-            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68f98dc8386ebb34a4e98146/ef1e7f84c_WhatsAppImage2025-10-22at222745_40ec4697.jpg"
-            alt="Panthers Run Club team"
-            className="w-full aspect-[4/5] object-cover border-2 border-forest-900 rounded-br-[100px] rounded-tl-[100px] grayscale hover:grayscale-0 transition-all duration-700"
-          />
-          {/* Organic Curved Branch */}
-          <div className="hidden md:block absolute top-32 -left-24 w-24 h-12 text-forest-900 opacity-60">
-            <svg width="100%" height="100%" viewBox="0 0 100 20" preserveAspectRatio="none">
-              <path d="M0,10 Q25,25 50,10 T100,10" stroke="currentColor" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
-            </svg>
-          </div>
-          {/* Subtle Leaf Embed */}
-          <svg className="absolute -bottom-6 -left-4 w-12 h-12 text-clay-500 opacity-80 rotate-90" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 22S2 16 2 8c0-4 3-7 7-7 2.5 0 4.5 1.5 6 3 1.5-1.5 3.5-3 6-3 4 0 7 3 7 7 0 8-10 14-10 14z" />
-          </svg>
-        </motion.div>
+          {/* Photo */}
+          <motion.div {...fadeUp(0.3)} className="relative order-1 md:order-2">
+            <img
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68f98dc8386ebb34a4e98146/ef1e7f84c_WhatsAppImage2025-10-22at222745_40ec4697.jpg"
+              alt="Panthers Run Club"
+              className="w-full aspect-[4/5] object-cover border-2 border-forest-900 grayscale hover:grayscale-0 transition-all duration-700"
+              onError={(e) => {
+                e.target.src = 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=800&q=80';
+              }}
+            />
+          </motion.div>
 
+        </div>
       </div>
     </section>
   );

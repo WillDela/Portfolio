@@ -1,143 +1,118 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Briefcase, GraduationCap, Calendar } from 'lucide-react';
+
+const EXPERIENCE = [
+  {
+    num: '01',
+    role: 'Software Engineer Intern',
+    company: 'Datadog',
+    location: 'New York City, NY',
+    period: 'Summer 2026',
+    tag: 'Incoming',
+    bullets: [
+      'Incoming summer internship at one of the leading observability and cloud monitoring platforms.',
+    ],
+  },
+  {
+    num: '02',
+    role: 'Machine Learning Fellow',
+    company: 'Handshake',
+    location: 'Remote',
+    period: 'Feb 2026 – Aug 2026',
+    tag: 'Current',
+    bullets: [
+      'Conducting Reinforcement Learning from Human Feedback (RLHF) on multimodal LLM and vision models, evaluating 200+ prompts to reduce hallucinations and improve model alignment for production deployment pipelines.',
+    ],
+  },
+  {
+    num: '03',
+    role: 'Web Developer Intern',
+    company: 'Destination Brides',
+    location: 'Remote',
+    period: 'May 2025 – Jul 2025',
+    bullets: [
+      'Built scalable React architecture with standardized component libraries and development protocols, delivering 6 responsive e-commerce platforms for wedding industry clients.',
+      'Streamlined cross-functional workflow across 6-person team by integrating GitHub, Slack, and Figma, reducing coordination overhead and accelerating delivery cycles.',
+    ],
+  },
+  {
+    num: '04',
+    role: 'Computer Lab & IT Student Assistant',
+    company: 'Florida International University',
+    location: 'Miami, FL',
+    period: 'Oct 2024 – Present',
+    tag: 'Current',
+    bullets: [
+      'Delivering tier 1–2 technical support for 9,000+ students and faculty across 15 computer labs; administering systems via Faronics DeepFreeze to maintain 99% uptime.',
+      'Developed technical documentation library and RMM Services ticketing system, reducing repeat service tickets and improving resolution efficiency.',
+    ],
+  },
+];
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.7, delay, ease: 'easeOut' },
+});
 
 export default function Experience() {
-  const experiences = [
-    {
-      type: 'work',
-      title: 'Web Developer Intern',
-      company: 'Destination Brides',
-      location: 'Remote',
-      period: 'May 2025 – July 2025',
-      side: 'right',
-      achievements: [
-        'Streamlined development workflow by configuring GitHub, Slack, and Figma integration for 6-person cross-functional team',
-        'Prepared technical foundation for scaling React-based architecture across 6 planned site launches',
-        'Built expertise in modern frontend workflows and component-based architecture',
-      ],
-      skills: ['React', 'Figma', 'GitHub', 'Team Collaboration'],
-    },
-    {
-      type: 'work',
-      title: 'Computer Lab & IT Student Assistant',
-      company: 'Florida International University',
-      location: 'Miami, FL',
-      period: 'October 2024 – Current',
-      side: 'left',
-      achievements: [
-        'Deliver tier 1-2 technical support for 9,000+ students and faculty across College of Business',
-        'Maintain 99% system uptime across 15 computer labs through proactive troubleshooting',
-        'Developed technical documentation library reducing repeat service tickets',
-      ],
-      skills: ['Technical Support', 'System Administration', 'Documentation'],
-    },
-    {
-      type: 'education',
-      title: 'Bachelor of Arts in Computer Science',
-      company: 'Florida International University',
-      location: 'Miami, FL',
-      period: 'June 2023 – May 2027',
-      side: 'right',
-      achievements: [
-        'GPA: 3.85/4.0',
-        'Relevant Coursework: Object-Oriented Programming, Data Structures, Discrete Structures, Applied Linear Structures, Systems Programming, Operating Systems, Intro to Deep Learning, Artificial Intelligence',
-      ],
-      skills: ['Python', 'Java', 'Algorithms', 'Machine Learning'],
-    },
-  ];
-
   return (
-    <section id="experience" className="relative py-32 px-4 w-full max-w-6xl mx-auto">
-      <div className="mb-24 text-center md:text-right md:mr-8 lg:mr-0 md:pr-[50%] md:translate-x-[120px]">
-        <h2 className="text-4xl md:text-5xl font-black text-forest-900 mb-6 uppercase tracking-tight">
-          Experience
-        </h2>
-        <div className="h-px w-24 bg-forest-900 mx-auto md:mx-0 opacity-20" />
-      </div>
+    <section id="experience" className="py-28 px-6 bg-earth-100/40">
+      <div className="max-w-6xl mx-auto">
 
-      <div className="relative z-10 space-y-32 pb-16">
-        {experiences.map((exp, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className={`flex flex-col md:flex-row items-center relative ${
-              exp.side === 'left' ? '' : 'md:flex-row-reverse'
-            }`}
-          >
-            {/* Tree Node / Anchor */}
-            <div className="absolute left-4 md:left-1/2 top-4 w-3 h-3 rounded-full bg-forest-900 transform -translate-x-[5px] md:-translate-x-[6px] hidden md:block" />
+        <motion.div {...fadeUp()} className="mb-16">
+          <p className="text-xs font-bold tracking-widest uppercase text-clay-500 mb-3">02</p>
+          <h2 className="font-display font-bold text-5xl md:text-6xl text-forest-900 tracking-tight leading-none">
+            Experience
+          </h2>
+          <div className="h-px w-16 bg-forest-900/20 mt-6" />
+        </motion.div>
 
-            {/* Empty space for the opposite side */}
-            <div className="hidden md:block w-1/2" />
-
-            {/* Content Side */}
-            <div className="w-full md:w-1/2 relative space-y-6">
-              {/* Organic Curved Branch */}
-              <div 
-                className={`hidden md:block absolute top-4 w-12 lg:w-24 h-8 text-forest-900 opacity-60 ${
-                  exp.side === 'left' ? '-right-12 lg:-right-24' : '-left-12 lg:-left-24'
-                }`} 
-              >
-                <svg width="100%" height="100%" viewBox="0 0 100 20" preserveAspectRatio="none">
-                  <path d="M0,10 Q25,25 50,10 T100,10" stroke="currentColor" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
-                </svg>
+        <div>
+          {EXPERIENCE.map((exp, i) => (
+            <motion.div
+              key={exp.num}
+              {...fadeUp(i * 0.08)}
+              className="grid md:grid-cols-[160px_1fr] gap-6 md:gap-12 py-10 border-t border-forest-900/12 last:border-b"
+            >
+              {/* Left: meta */}
+              <div className="space-y-1 md:pt-1">
+                <p className="font-display font-bold text-4xl text-forest-900/12 leading-none select-none">
+                  {exp.num}
+                </p>
+                <p className="text-xs text-forest-800/60 font-medium pt-1">{exp.period}</p>
+                <p className="text-xs text-forest-800/40">{exp.location}</p>
+                {exp.tag && (
+                  <span className="inline-block mt-1 text-[10px] font-bold tracking-widest uppercase text-clay-500 border border-clay-500/40 px-2 py-0.5">
+                    {exp.tag}
+                  </span>
+                )}
               </div>
-              {/* Subtle Leaf Embed */}
-              <svg className={`absolute top-0 ${exp.side === 'left' ? '-right-6 rotate-0' : '-left-6 -rotate-90'} w-8 h-8 text-clay-500 opacity-80 z-10 hidden md:block`} viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 22S2 16 2 8c0-4 3-7 7-7 2.5 0 4.5 1.5 6 3 1.5-1.5 3.5-3 6-3 4 0 7 3 7 7 0 8-10 14-10 14z" />
-              </svg>
-              
-              <div className={`${exp.side === 'left' ? 'md:pr-12 lg:pr-24 md:text-right' : 'md:pl-12 lg:pl-24 pl-12'}`}>
-                <div className="flex items-center gap-4 mb-4 ${exp.side === 'left' ? 'md:flex-row-reverse' : ''}">
-                  <div className={`p-4 rounded-full border border-forest-900/20 ${exp.type === 'education' ? 'bg-earth-100' : 'bg-white'}`}>
-                    {exp.type === 'education' ? (
-                      <GraduationCap className="w-6 h-6 text-clay-600" />
-                    ) : (
-                      <Briefcase className="w-6 h-6 text-forest-900" />
-                    )}
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-black text-forest-900 mb-1">{exp.title}</h3>
-                    <p className="text-clay-600 font-bold tracking-widest uppercase text-xs">{exp.company}</p>
-                  </div>
-                </div>
 
-                <div className={`flex items-center gap-2 text-sm text-forest-800 font-bold mb-6 ${exp.side === 'left' ? 'md:justify-end' : ''}`}>
-                  <Calendar className="w-4 h-4" />
-                  <span>{exp.period}</span>
-                  <span className="mx-2 opacity-20">|</span>
-                  <span>{exp.location}</span>
-                </div>
-
-                <ul className="space-y-4 mb-8">
-                  {exp.achievements.map((achievement, i) => (
-                    <li key={i} className={`text-lg text-forest-800 font-medium flex gap-3 ${exp.side === 'left' ? 'md:flex-row-reverse' : ''}`}>
-                      <span className="text-forest-900/30 font-black mt-1">—</span>
-                      <span>{achievement}</span>
+              {/* Right: content */}
+              <div>
+                <h3 className="font-semibold text-xl text-forest-900 leading-tight mb-0.5">
+                  {exp.role}
+                </h3>
+                <p className="text-clay-500 font-semibold text-sm mb-4 tracking-wide">
+                  {exp.company}
+                </p>
+                <ul className="space-y-2.5">
+                  {exp.bullets.map((bullet, j) => (
+                    <li
+                      key={j}
+                      className="flex items-start gap-3 text-sm text-forest-800/75 leading-relaxed"
+                    >
+                      <span className="mt-[7px] w-1 h-1 rounded-full bg-clay-500 shrink-0" />
+                      {bullet}
                     </li>
                   ))}
                 </ul>
-
-                <div className={`flex flex-wrap gap-2 ${exp.side === 'left' ? 'md:justify-end' : ''}`}>
-                  {exp.skills.map((skill) => (
-                    <span 
-                      key={skill}
-                      className="text-xs font-bold uppercase tracking-widest text-forest-900 border border-forest-900/20 px-3 py-1 bg-white"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
               </div>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

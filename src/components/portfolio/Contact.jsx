@@ -1,186 +1,122 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Github, Linkedin, Send } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone } from 'lucide-react';
+
+const LINKS = [
+  {
+    icon: Mail,
+    label: 'Email',
+    value: 'wdelaosa24@gmail.com',
+    href: 'mailto:wdelaosa24@gmail.com',
+  },
+  {
+    icon: Github,
+    label: 'GitHub',
+    value: 'github.com/WillDela',
+    href: 'https://github.com/WillDela',
+    external: true,
+  },
+  {
+    icon: Linkedin,
+    label: 'LinkedIn',
+    value: 'linkedin.com/in/williamdelaosa',
+    href: 'https://linkedin.com/in/williamdelaosa',
+    external: true,
+  },
+  {
+    icon: Phone,
+    label: 'Phone',
+    value: '305-850-9778',
+    href: 'tel:3058509778',
+  },
+];
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.7, delay, ease: 'easeOut' },
+});
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    window.location.href = `mailto:wdelaosa24@gmail.com?subject=Portfolio Contact from ${formData.name}&body=${formData.message}`;
-  };
-
-  const contactInfo = [
-    { icon: Mail, label: 'Email', value: 'wdelaosa24@gmail.com', link: 'mailto:wdelaosa24@gmail.com' },
-    { icon: Phone, label: 'Phone', value: '305-850-9778', link: 'tel:3058509778' },
-    { icon: MapPin, label: 'Location', value: 'Miami, Florida' },
-  ];
-
   return (
-    <section id="contact" className="relative py-32 px-4 w-full max-w-6xl mx-auto overflow-hidden">
-      
-      {/* SVG Root System */}
-      <svg 
-        className="absolute left-1/2 top-0 w-full max-w-[800px] h-[400px] text-clay-800 opacity-20 transform -translate-x-1/2 pointer-events-none z-0" 
-        viewBox="0 0 800 400" 
-        preserveAspectRatio="none"
-      >
-        <path d="M400,0 C400,100 400,200 400,300" stroke="currentColor" strokeWidth="30" fill="none" strokeLinecap="round" />
-        <path d="M400,80 C300,150 100,250 -50,400" stroke="currentColor" strokeWidth="16" fill="none" strokeLinecap="round" />
-        <path d="M400,80 C500,150 700,250 850,400" stroke="currentColor" strokeWidth="16" fill="none" strokeLinecap="round" />
-        <path d="M350,115 C200,200 50,250 -50,300" stroke="currentColor" strokeWidth="10" fill="none" strokeLinecap="round" />
-        <path d="M450,115 C600,200 750,250 850,300" stroke="currentColor" strokeWidth="10" fill="none" strokeLinecap="round" />
-        <path d="M380,180 C250,300 200,350 100,400" stroke="currentColor" strokeWidth="12" fill="none" strokeLinecap="round" />
-        <path d="M420,180 C550,300 600,350 700,400" stroke="currentColor" strokeWidth="12" fill="none" strokeLinecap="round" />
-      </svg>
+    <section id="contact" className="py-28 px-6 bg-earth-100/40 relative overflow-hidden">
 
-      <div className="relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-24 relative bg-[#fdfbf7] py-8 mx-auto w-fit px-8"
-        >
-          {/* Node to cap off the trunk */}
-          <div className="absolute left-1/2 top-0 w-4 h-4 rounded-full bg-forest-900 transform -translate-x-1/2 -translate-y-1/2 hidden md:block" />
-          
-          <h2 className="text-4xl md:text-5xl font-black text-forest-900 mb-6 uppercase tracking-tight">
-            Let's Connect
+      {/* Subtle root pattern at the top of this section */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl pointer-events-none" aria-hidden="true">
+        <svg viewBox="0 0 800 120" width="100%" height="120" preserveAspectRatio="xMidYMin meet">
+          <g opacity="0.06" stroke="#1e2d1e" fill="none" strokeLinecap="round">
+            <path d="M 400,0 C 397,20 403,40 400,60" strokeWidth="6" />
+            <path d="M 400,0 C 378,18 354,38 326,55 C 302,70 275,82 244,90" strokeWidth="4" />
+            <path d="M 400,0 C 422,18 446,38 474,55 C 498,70 525,82 556,90" strokeWidth="4" />
+            <path d="M 400,0 C 368,22 334,46 298,68 C 268,86 235,100 198,108" strokeWidth="3" />
+            <path d="M 400,0 C 432,22 466,46 502,68 C 532,86 565,100 602,108" strokeWidth="3" />
+          </g>
+        </svg>
+      </div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
+
+        <motion.div {...fadeUp()} className="mb-16">
+          <p className="text-xs font-bold tracking-widest uppercase text-clay-500 mb-3">06</p>
+          <h2 className="font-display font-bold text-5xl md:text-6xl text-forest-900 tracking-tight leading-none">
+            Get in Touch
           </h2>
-          <div className="h-px w-24 bg-forest-900 opacity-20 mx-auto mb-6" />
-          <p className="text-forest-800 font-medium text-xl max-w-2xl mx-auto">
-            Interested in collaborating or just want to chat? Feel free to reach out!
-          </p>
+          <div className="h-px w-16 bg-forest-900/20 mt-6" />
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="border-2 border-forest-900 p-8 bg-white relative">
-              {/* Decorative corners */}
-              <div className="absolute -top-2 -left-2 w-4 h-4 border-t-4 border-l-4 border-clay-500" />
-              <div className="absolute -bottom-2 -right-2 w-4 h-4 border-b-4 border-r-4 border-clay-500" />
+        <div className="grid md:grid-cols-2 gap-16 lg:gap-24">
 
-              <form onSubmit={handleSubmit} className="space-y-8">
-                <div>
-                  <label className="block text-forest-900 mb-2 font-black uppercase tracking-widest text-sm">Name</label>
-                  <input
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-earth-100 border-2 border-forest-900/20 text-forest-900 focus:border-forest-900 outline-none p-4 transition-colors font-medium"
-                    placeholder="Your name"
-                  />
-                </div>
-                <div>
-                  <label className="block text-forest-900 mb-2 font-black uppercase tracking-widest text-sm">Email</label>
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-earth-100 border-2 border-forest-900/20 text-forest-900 focus:border-forest-900 outline-none p-4 transition-colors font-medium"
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-                <div>
-                  <label className="block text-forest-900 mb-2 font-black uppercase tracking-widest text-sm">Message</label>
-                  <textarea
-                    required
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-earth-100 border-2 border-forest-900/20 text-forest-900 focus:border-forest-900 outline-none p-4 min-h-[150px] transition-colors font-medium resize-y"
-                    placeholder="Your message..."
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-forest-900 hover:bg-forest-800 text-[#fdfbf7] font-black tracking-widest uppercase py-4 flex items-center justify-center transition-colors"
-                >
-                  <Send className="w-5 h-5 mr-3" />
-                  Send Message
-                </button>
-              </form>
-            </div>
+          {/* Left: message */}
+          <motion.div {...fadeUp(0.1)} className="space-y-6">
+            <p className="text-xl text-forest-800 leading-relaxed">
+              I'm always open to new opportunities, collaborations, or just a good conversation
+              about code, running, or building things.
+            </p>
+            <p className="text-forest-800/70 leading-relaxed">
+              Currently based in Miami, FL — open to remote and New York City this summer.
+            </p>
           </motion.div>
 
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-8"
-          >
-            {contactInfo.map((info, index) => (
-              <motion.div
-                key={info.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                className="flex items-center gap-6 pb-6 border-b border-forest-900/10 last:border-0"
-              >
-                <div className="p-4 border-2 border-forest-900 bg-white">
-                  <info.icon className="w-6 h-6 text-clay-600" />
-                </div>
-                <div>
-                  <p className="text-sm text-forest-900/60 font-black tracking-widest uppercase mb-1">{info.label}</p>
-                  {info.link ? (
-                    <a
-                      href={info.link}
-                      className="text-xl font-black text-forest-900 hover:text-clay-600 transition-colors"
-                    >
-                      {info.value}
-                    </a>
-                  ) : (
-                    <p className="text-xl font-black text-forest-900">{info.value}</p>
-                  )}
-                </div>
-              </motion.div>
-            ))}
-
-            <div className="flex flex-col sm:flex-row gap-4 pt-8 border-t border-forest-900/20">
-              <a
-                href="https://github.com/WillDela"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 border-2 border-forest-900 text-forest-900 hover:bg-forest-900 hover:text-[#fdfbf7] font-black uppercase tracking-widest py-4 flex items-center justify-center transition-colors"
-              >
-                <Github className="w-5 h-5 mr-3" />
-                GitHub
-              </a>
-              <a
-                href="https://linkedin.com/in/williamdelaosa"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 border-2 border-forest-900 text-forest-900 hover:bg-forest-900 hover:text-[#fdfbf7] font-black uppercase tracking-widest py-4 flex items-center justify-center transition-colors"
-              >
-                <Linkedin className="w-5 h-5 mr-3" />
-                LinkedIn
-              </a>
-            </div>
+          {/* Right: links */}
+          <motion.div {...fadeUp(0.2)}>
+            <ul className="space-y-0">
+              {LINKS.map((link) => (
+                <li key={link.label} className="border-t border-forest-900/12 last:border-b">
+                  <a
+                    href={link.href}
+                    target={link.external ? '_blank' : undefined}
+                    rel={link.external ? 'noopener noreferrer' : undefined}
+                    className="group flex items-center gap-5 py-5 text-forest-900 hover:text-clay-500 transition-colors"
+                  >
+                    <link.icon className="w-5 h-5 shrink-0 text-forest-900/40 group-hover:text-clay-500 transition-colors" />
+                    <div className="flex-1 min-w-0">
+                      <p className="text-xs font-bold uppercase tracking-widest text-forest-900/40 group-hover:text-clay-500/70 mb-0.5 transition-colors">
+                        {link.label}
+                      </p>
+                      <p className="font-medium truncate">{link.value}</p>
+                    </div>
+                    <span className="text-forest-900/20 group-hover:text-clay-500/60 transition-all group-hover:translate-x-1 text-lg">
+                      →
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </motion.div>
         </div>
 
+        {/* Footer */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-32 text-forest-900/60 font-bold uppercase tracking-widest text-sm"
+          {...fadeUp(0.3)}
+          className="mt-24 pt-8 border-t border-forest-900/12 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3"
         >
-          <p>© 2025 William Delaosa. Built with React and passion for both code and running. 🏃🏽‍♂️</p>
+          <p className="text-xs text-forest-900/40 font-medium tracking-wide">
+            © 2026 William Delaosa
+          </p>
+          <p className="text-xs text-forest-900/30 font-medium tracking-wide">
+            Miami, FL · Florida International University
+          </p>
         </motion.div>
       </div>
     </section>
