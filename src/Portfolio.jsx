@@ -53,15 +53,23 @@ export default function Portfolio() {
         style={{ top: '90vh' }}
         aria-hidden="true"
       >
-        <svg viewBox="0 0 800 380" width="100%" height="380" preserveAspectRatio="xMidYMid meet">
-          <g opacity="0.055" stroke="#1e2d1e" fill="none" strokeLinecap="round">
-            <path d="M 400,0 C 397,45 403,90 400,135 C 397,180 403,225 400,270" strokeWidth="8" />
-            <path d="M 400,0 C 372,32 342,66 308,94 C 280,118 248,138 212,154" strokeWidth="5" />
-            <path d="M 400,0 C 428,32 458,66 492,94 C 520,118 552,138 588,154" strokeWidth="5" />
-            <path d="M 400,0 C 360,42 318,82 274,114 C 236,142 196,162 152,174" strokeWidth="3.5" />
-            <path d="M 400,0 C 440,42 482,82 526,114 C 564,142 604,162 648,174" strokeWidth="3.5" />
-            <path d="M 400,0 C 348,52 296,102 240,136 C 192,165 140,184 86,194" strokeWidth="2.5" />
-            <path d="M 400,0 C 452,52 504,102 560,136 C 608,165 660,184 714,194" strokeWidth="2.5" />
+        <svg viewBox="0 0 800 800" width="100%" height="800" preserveAspectRatio="xMidYMin slice">
+          <g opacity="0.04" stroke="#1e2d1e" fill="none" strokeLinecap="round">
+            {/* Center straight-ish root */}
+            <path d="M 400,0 L 400,800" strokeWidth="8" />
+            
+            {/* Elegant sweeping arcs outward */}
+            <path d="M 400,0 Q 400,400 0,600" strokeWidth="5" />
+            <path d="M 400,0 Q 400,400 800,600" strokeWidth="5" />
+            
+            <path d="M 400,0 Q 420,300 100,800" strokeWidth="3.5" />
+            <path d="M 400,0 Q 380,300 700,800" strokeWidth="3.5" />
+            
+            <path d="M 400,0 Q 450,200 150,450" strokeWidth="2.5" />
+            <path d="M 400,0 Q 350,200 650,450" strokeWidth="2.5" />
+            
+            <path d="M 400,0 Q 480,150 200,300" strokeWidth="2" />
+            <path d="M 400,0 Q 320,150 600,300" strokeWidth="2" />
           </g>
         </svg>
       </div>

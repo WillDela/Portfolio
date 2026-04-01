@@ -40,9 +40,13 @@ export default function About() {
             <p className="text-lg text-forest-800 leading-relaxed">
               I'm a Computer Science student at{' '}
               <span className="font-semibold text-forest-900">Florida International University</span>{' '}
-              building full-stack applications and AI systems. I care about writing code that solves real
-              problems — not just code that compiles.
+              building full-stack applications and AI systems.
             </p>
+            
+            <blockquote className="font-display italic text-3xl md:text-4xl text-forest-900 leading-snug py-2 border-l-4 border-clay-500 pl-6 my-8">
+              "I care about writing code that solves real problems — not just code that compiles."
+            </blockquote>
+
             <p className="text-lg text-forest-800 leading-relaxed">
               Outside of engineering, I co-founded{' '}
               <span className="font-semibold text-forest-900">Panthers Run Club</span> — growing it to

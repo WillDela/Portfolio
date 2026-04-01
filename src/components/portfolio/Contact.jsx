@@ -44,13 +44,15 @@ export default function Contact() {
 
       {/* Subtle root pattern at the top of this section */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl pointer-events-none" aria-hidden="true">
-        <svg viewBox="0 0 800 120" width="100%" height="120" preserveAspectRatio="xMidYMin meet">
-          <g opacity="0.06" stroke="#1e2d1e" fill="none" strokeLinecap="round">
-            <path d="M 400,0 C 397,20 403,40 400,60" strokeWidth="6" />
-            <path d="M 400,0 C 378,18 354,38 326,55 C 302,70 275,82 244,90" strokeWidth="4" />
-            <path d="M 400,0 C 422,18 446,38 474,55 C 498,70 525,82 556,90" strokeWidth="4" />
-            <path d="M 400,0 C 368,22 334,46 298,68 C 268,86 235,100 198,108" strokeWidth="3" />
-            <path d="M 400,0 C 432,22 466,46 502,68 C 532,86 565,100 602,108" strokeWidth="3" />
+        <svg viewBox="0 0 800 160" width="100%" height="160" preserveAspectRatio="xMidYMin meet">
+          <g opacity="0.05" stroke="#1e2d1e" fill="none" strokeLinecap="round">
+            <path d="M 400,0 L 400,160" strokeWidth="6" />
+            <path d="M 400,0 Q 400,80 200,160" strokeWidth="4" />
+            <path d="M 400,0 Q 400,80 600,160" strokeWidth="4" />
+            <path d="M 400,0 Q 400,60 100,120" strokeWidth="3" />
+            <path d="M 400,0 Q 400,60 700,120" strokeWidth="3" />
+            <path d="M 400,0 Q 400,40 20,80" strokeWidth="2" />
+            <path d="M 400,0 Q 400,40 780,80" strokeWidth="2" />
           </g>
         </svg>
       </div>
