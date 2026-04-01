@@ -25,7 +25,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="relative py-32 px-4 bg-slate-900/50">
+    <section id="contact" className="relative py-32 px-4 bg-earth-50/50">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -34,11 +34,11 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-6 bg-gradient-to-r from-forest-900 to-forest-700 bg-clip-text text-transparent">
             Let's Connect
           </h2>
-          <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto mb-6" />
-          <p className="text-slate-300 text-lg max-w-2xl mx-auto">
+          <div className="h-1.5 w-24 bg-gradient-to-r from-forest-500 to-clay-500 mx-auto mb-6 rounded-full" />
+          <p className="text-forest-800 font-medium text-lg max-w-2xl mx-auto">
             Interested in collaborating or just want to chat? Feel free to reach out!
           </p>
         </motion.div>
@@ -50,42 +50,42 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <Card className="bg-slate-800/80 backdrop-blur-sm border-slate-700/50 p-8">
+            <Card className="bg-white/80 backdrop-blur-md shadow-lg shadow-forest-900/5 border-earth-200 p-8 rounded-3xl">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-slate-300 mb-2 font-medium">Name</label>
+                  <label className="block text-forest-900 mb-2 font-bold">Name</label>
                   <Input
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="bg-slate-900/50 border-slate-700 text-white"
+                    className="bg-earth-50 border-earth-300 text-forest-900 focus:border-forest-500 focus:ring-forest-500 rounded-xl"
                     placeholder="Your name"
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-300 mb-2 font-medium">Email</label>
+                  <label className="block text-forest-900 mb-2 font-bold">Email</label>
                   <Input
                     type="email"
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="bg-slate-900/50 border-slate-700 text-white"
+                    className="bg-earth-50 border-earth-300 text-forest-900 focus:border-forest-500 focus:ring-forest-500 rounded-xl"
                     placeholder="your.email@example.com"
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-300 mb-2 font-medium">Message</label>
+                  <label className="block text-forest-900 mb-2 font-bold">Message</label>
                   <Textarea
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="bg-slate-900/50 border-slate-700 text-white min-h-[150px]"
+                    className="bg-earth-50 border-earth-300 text-forest-900 focus:border-forest-500 focus:ring-forest-500 min-h-[150px] rounded-xl"
                     placeholder="Your message..."
                   />
                 </div>
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white"
+                  className="w-full bg-forest-600 hover:bg-forest-700 text-white shadow-md shadow-forest-900/10 font-bold rounded-xl"
                   size="lg"
                 >
                   <Send className="w-4 h-4 mr-2" />
@@ -110,22 +110,22 @@ export default function Contact() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
               >
-                <Card className="bg-slate-800/80 backdrop-blur-sm border-slate-700/50 p-6 hover:border-cyan-500/50 transition-all">
+                <Card className="bg-white/80 backdrop-blur-md shadow-sm border-earth-200 p-6 hover:border-forest-400 hover:-translate-y-1 transition-all duration-300 rounded-2xl">
                   <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-lg bg-gradient-to-r from-blue-500/20 to-cyan-500/20">
-                      <info.icon className="w-6 h-6 text-cyan-400" />
+                    <div className="p-3 rounded-xl bg-clay-500/10">
+                      <info.icon className="w-6 h-6 text-clay-600" />
                     </div>
                     <div>
-                      <p className="text-sm text-slate-400 mb-1">{info.label}</p>
+                      <p className="text-sm text-forest-700 font-bold mb-1">{info.label}</p>
                       {info.link ? (
                         <a
                           href={info.link}
-                          className="text-white font-medium hover:text-cyan-400 transition-colors"
+                          className="text-forest-900 font-black hover:text-clay-600 transition-colors"
                         >
                           {info.value}
                         </a>
                       ) : (
-                        <p className="text-white font-medium">{info.value}</p>
+                        <p className="text-forest-900 font-black">{info.value}</p>
                       )}
                     </div>
                   </div>
@@ -142,7 +142,7 @@ export default function Contact() {
               >
                 <Button
                   variant="outline"
-                  className="w-full border-slate-700 hover:border-cyan-500 hover:bg-slate-800"
+                  className="w-full border-earth-300 text-forest-800 hover:bg-earth-100 hover:border-earth-400 rounded-xl font-bold bg-white/50 backdrop-blur-sm shadow-sm"
                 >
                   <Github className="w-5 h-5 mr-2" />
                   GitHub
@@ -156,7 +156,7 @@ export default function Contact() {
               >
                 <Button
                   variant="outline"
-                  className="w-full border-slate-700 hover:border-cyan-500 hover:bg-slate-800"
+                  className="w-full border-earth-300 text-forest-800 hover:bg-earth-100 hover:border-earth-400 rounded-xl font-bold bg-white/50 backdrop-blur-sm shadow-sm"
                 >
                   <Linkedin className="w-5 h-5 mr-2" />
                   LinkedIn
@@ -171,9 +171,9 @@ export default function Contact() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-16 text-slate-400"
+          className="text-center mt-16 text-forest-700 font-medium"
         >
-          <p>© 2025 William Delaosa. Built with React and passion for both code and running.</p>
+          <p>© 2025 William Delaosa. Built with React and passion for both code and running. 🏃🏽‍♂️</p>
         </motion.div>
       </div>
     </section>

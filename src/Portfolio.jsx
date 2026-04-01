@@ -65,15 +65,15 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 min-h-screen">
+    <div className="relative bg-[#fdfbf7] min-h-screen font-sans text-forest-900 overflow-hidden">
       {/* Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 origin-left z-50"
+        className="fixed top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-clay-500 via-forest-400 to-earth-400 origin-left z-50 rounded-r-full"
         style={{ scaleX: scrollYProgress }}
       />
 
       {/* Desktop Navigation */}
-      <nav className="hidden md:block fixed top-4 left-1/2 transform -translate-x-1/2 z-40 bg-slate-800/80 backdrop-blur-lg rounded-full px-6 py-3 border border-slate-700/50">
+      <nav className="hidden md:block fixed top-4 left-1/2 transform -translate-x-1/2 z-40 bg-white/70 backdrop-blur-xl shadow-lg shadow-forest-900/5 rounded-full px-6 py-3 border border-earth-200">
         <div className="flex gap-6">
           {['About', 'Experience', 'Projects', 'Skills', 'Leadership', 'Contact'].map((item) => (
             <button
@@ -81,8 +81,8 @@ export default function Portfolio() {
               onClick={() => scrollToSection(item.toLowerCase())}
               className={`text-sm font-medium transition-colors ${
                 activeSection === item.toLowerCase()
-                  ? 'text-cyan-400'
-                  : 'text-slate-300 hover:text-white'
+                  ? 'text-forest-600 font-bold bg-earth-100 px-3 py-1 rounded-full'
+                  : 'text-forest-700 hover:text-clay-500 hover:bg-earth-50 px-3 py-1 rounded-full'
               }`}
             >
               {item}
@@ -95,7 +95,7 @@ export default function Portfolio() {
       <div className="md:hidden fixed top-4 right-4 z-50">
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="bg-slate-800/80 backdrop-blur-lg rounded-full p-3 border border-slate-700/50 text-slate-300 hover:text-white transition-colors"
+          className="bg-white/70 shadow-lg shadow-forest-900/5 backdrop-blur-xl rounded-full p-3 border border-earth-200 text-forest-700 hover:text-forest-900 transition-colors"
           aria-label="Toggle menu"
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -108,7 +108,7 @@ export default function Portfolio() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="md:hidden fixed top-20 right-4 z-40 bg-slate-800/95 backdrop-blur-lg rounded-2xl p-6 border border-slate-700/50 shadow-2xl"
+          className="md:hidden fixed top-20 right-4 z-40 bg-white/90 backdrop-blur-xl rounded-2xl p-6 border border-earth-200 shadow-2xl"
         >
           <div className="flex flex-col gap-4">
             {['About', 'Experience', 'Projects', 'Skills', 'Leadership', 'Contact'].map((item) => (
@@ -117,8 +117,8 @@ export default function Portfolio() {
                 onClick={() => scrollToSection(item.toLowerCase())}
                 className={`text-left text-base font-medium transition-colors py-2 ${
                   activeSection === item.toLowerCase()
-                    ? 'text-cyan-400'
-                    : 'text-slate-300 hover:text-white'
+                    ? 'text-forest-600 font-bold bg-earth-100 rounded-lg px-2'
+                    : 'text-forest-700 hover:text-clay-500 hover:bg-earth-50 rounded-lg px-2'
                 }`}
               >
                 {item}
@@ -128,9 +128,8 @@ export default function Portfolio() {
         </motion.div>
       )}
 
-      {/* Track Line Decoration */}
-      <div className="fixed left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-cyan-500/20 to-transparent pointer-events-none" />
-      <div className="fixed right-0 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-blue-500/20 to-transparent pointer-events-none" />
+      {/* Subtle background noise/texture can be added here if desired, removing track lines */}
+      <div className="fixed inset-0 pointer-events-none opacity-[0.03] mix-blend-multiply" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
 
       {/* Sections */}
       <Hero scrollToSection={scrollToSection} />

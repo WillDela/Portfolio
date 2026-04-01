@@ -8,31 +8,31 @@ export default function Skills() {
     {
       icon: Code2,
       title: 'Languages',
-      color: 'from-blue-500 to-cyan-500',
+      color: 'from-clay-500 to-earth-500',
       skills: ['JavaScript', 'TypeScript', 'Python', 'Java', 'HTML5', 'CSS3'],
     },
     {
       icon: Layout,
       title: 'Frameworks & Libraries',
-      color: 'from-purple-500 to-pink-500',
+      color: 'from-forest-500 to-clay-400',
       skills: ['React', 'Node.js', 'Express', 'TensorFlow', 'React Native', 'Bootstrap5'],
     },
     {
       icon: Database,
       title: 'Data & AI',
-      color: 'from-green-500 to-emerald-500',
+      color: 'from-forest-400 to-earth-400',
       skills: ['NumPy', 'Pandas', 'Scikit-learn', 'MongoDB', 'PostgreSQL', 'Django'],
     },
     {
       icon: Wrench,
       title: 'Tools & Platforms',
-      color: 'from-orange-500 to-red-500',
+      color: 'from-clay-600 to-earth-600',
       skills: ['Git', 'GitHub', 'VS Code', 'Google Cloud', 'Auth0', 'Salesforce'],
     },
   ];
 
   return (
-    <section id="skills" className="relative py-32 px-4 bg-slate-900/50">
+    <section id="skills" className="relative py-32 px-4 bg-earth-50/50">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -40,10 +40,10 @@ export default function Skills() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-6 bg-gradient-to-r from-forest-900 to-forest-700 bg-clip-text text-transparent">
             Technical Skills
           </h2>
-          <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-cyan-500 mb-16" />
+          <div className="h-1.5 w-24 bg-gradient-to-r from-forest-500 to-clay-500 mb-16 rounded-full" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -55,12 +55,12 @@ export default function Skills() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="bg-slate-800/80 backdrop-blur-sm border-slate-700/50 p-6 hover:border-cyan-500/50 transition-all duration-300 h-full">
+              <Card className="bg-white/80 backdrop-blur-md shadow-lg shadow-forest-900/5 border-earth-200 p-6 hover:border-forest-400 hover:-translate-y-1 transition-all duration-300 h-full rounded-3xl">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className={`p-3 rounded-lg bg-gradient-to-r ${category.color}`}>
+                  <div className={`p-3 rounded-xl bg-gradient-to-r ${category.color} shadow-sm`}>
                     <category.icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">{category.title}</h3>
+                  <h3 className="text-xl font-black text-forest-900">{category.title}</h3>
                 </div>
 
                 <div className="flex flex-wrap gap-3">
@@ -71,7 +71,7 @@ export default function Skills() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.3, delay: 0.3 + skillIndex * 0.05 }}
-                      className="px-4 py-2 bg-slate-700/50 rounded-lg text-slate-200 text-sm font-medium hover:bg-slate-700 transition-colors cursor-default"
+                      className="px-4 py-2 bg-earth-100 rounded-xl border border-earth-200 text-forest-800 text-sm font-bold hover:bg-earth-200 hover:border-earth-300 transition-colors cursor-default shadow-sm"
                     >
                       {skill}
                     </motion.div>

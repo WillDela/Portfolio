@@ -43,10 +43,10 @@ export default function Projects() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-6 bg-gradient-to-r from-forest-900 to-forest-700 bg-clip-text text-transparent">
             Featured Projects
           </h2>
-          <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-cyan-500 mb-16" />
+          <div className="h-1.5 w-24 bg-gradient-to-r from-forest-500 to-clay-500 mb-16 rounded-full" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -64,40 +64,40 @@ export default function Projects() {
                 rel="noopener noreferrer"
                 className="block h-full"
               >
-                <Card className="bg-slate-800/80 backdrop-blur-sm border-slate-700/50 overflow-hidden hover:border-cyan-500/50 transition-all duration-300 h-full group cursor-pointer">
+                <Card className="bg-white/80 backdrop-blur-md shadow-lg shadow-forest-900/5 border-earth-200 overflow-hidden hover:border-forest-400 hover:-translate-y-1 transition-all duration-300 h-full group cursor-pointer rounded-3xl">
                   <div className="relative overflow-hidden">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-forest-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     {project.award && (
-                      <div className="absolute top-4 right-4 bg-yellow-500/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-2">
-                        <Trophy className="w-4 h-4 text-slate-900" />
-                        <span className="text-xs font-bold text-slate-900">Winner</span>
+                      <div className="absolute top-4 right-4 bg-clay-500/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-2 shadow-md">
+                        <Trophy className="w-4 h-4 text-white" />
+                        <span className="text-xs font-bold text-white">Winner</span>
                       </div>
                     )}
-                    <div className="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <ExternalLink className="w-4 h-4 text-cyan-400" />
-                      <span className="text-xs font-medium text-white">View Project</span>
+                    <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-md transform -translate-x-4 group-hover:translate-x-0">
+                      <ExternalLink className="w-4 h-4 text-forest-600" />
+                      <span className="text-xs font-bold text-forest-700">View Project</span>
                     </div>
                   </div>
 
                   <CardContent className="p-6">
-                    <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
+                    <h3 className="text-2xl font-black text-forest-900 mb-2">{project.title}</h3>
                     {project.award && (
-                      <div className="flex items-center gap-2 text-yellow-400 text-sm mb-3">
+                      <div className="flex items-center gap-2 text-clay-600 font-bold text-sm mb-3">
                         <Award className="w-4 h-4" />
                         <span>{project.award}</span>
                       </div>
                     )}
-                    <p className="text-slate-300 mb-4">{project.description}</p>
+                    <p className="text-forest-800 font-medium leading-relaxed mb-4">{project.description}</p>
 
-                    <div className="space-y-2 mb-4">
+                    <div className="space-y-2 mb-6">
                       {project.achievements.map((achievement, i) => (
-                        <div key={i} className="flex items-start gap-2 text-sm text-slate-400">
-                          <span className="text-cyan-400 mt-0.5">▸</span>
+                        <div key={i} className="flex items-start gap-2 text-sm text-forest-700">
+                          <span className="text-forest-500 mt-0.5 font-bold">▸</span>
                           <span>{achievement}</span>
                         </div>
                       ))}
@@ -108,7 +108,7 @@ export default function Projects() {
                         <Badge
                           key={tech}
                           variant="secondary"
-                          className="bg-slate-700/50 text-slate-300 text-xs"
+                          className="bg-earth-100 text-forest-700 hover:bg-earth-200 border border-earth-200 text-xs transition-colors"
                         >
                           {tech}
                         </Badge>
