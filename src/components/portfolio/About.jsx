@@ -45,16 +45,15 @@ export default function About() {
             <p className="text-lg text-forest-800 leading-relaxed">
               I'm a Computer Science student at{' '}
               <span className="font-semibold text-forest-900">Florida International University</span>{' '}
-              building full-stack applications and AI systems. Incoming Datagog SWE Intern (Summer 2026)
+              building full-stack applications and AI systems. Incoming <span className="font-semibold text-forest-900">Datagog SWE Intern</span> (Summer 2026)!
             </p>
 
 
 
             <p className="text-lg text-forest-800 leading-relaxed">
-              Outside of engineering I completed my the co-founded{' '}
-              <span className="font-semibold text-forest-900">Panthers Run Club</span> — growing it to
-              100+ members and guiding 50+ beginners through their first races. Running shapes how I
-              approach everything: consistent effort, progressive overload, showing up.
+              Outside of engineering I love running. I completed my first marathon in January of this year! I also co-founded{' '}
+              <span className="font-semibold text-forest-900">Panthers Run Club</span>, growing it to
+              100+ members. Running shaped to how I approach everything: consistent effort and showing up.
             </p>
 
             {/* Education */}
@@ -66,20 +65,17 @@ export default function About() {
               <h3 className="font-display font-bold text-2xl text-forest-900 uppercase">
                 Florida International University
               </h3>
-              <p className="font-mono text-sm font-semibold text-forest-900 mt-2 border-b-2 border-forest-900/20 pb-4">
-                B.A. Computer Science &nbsp;·&nbsp; GPA 3.85 / 4.0 &nbsp;·&nbsp; Expected May 2027
+              <p className="font-mono text-xs font-semibold text-forest-900 mt-2 border-b-2 border-forest-900/20 pb-4">
+                B.A. Computer Science &nbsp;·&nbsp; GPA 3.85 /4.0 &nbsp;·&nbsp; Expected May 2027
               </p>
               <p className="font-mono text-sm text-forest-800/80 leading-relaxed pt-4">
-                [Data Structures, OOP, Database Management, Systems Programming, Operating Systems, Deep Learning, Artificial Intelligence, Software Engineering]
+                [Data Structures, Object Oriented Programming, Database Management, Systems Programming, Operating Systems, Deep Learning, Artificial Intelligence, Software Engineering 1]
               </p>
             </div>
-
+            
             {/* Stats */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t-2 border-forest-900">
               {[
-                { val: '3.85', label: 'CUMULATIVE GPA' },
-                { val: '100+', label: 'RUNNERS LED' },
-                { val: '50+',  label: 'FIRST RACES' },
               ].map(({ val, label }) => (
                 <div key={label} className="border-2 border-forest-900 p-4 shadow-[4px_4px_0px_0px_#1e2d1e] bg-earth-50">
                   <p className="font-display font-black text-4xl text-forest-900">{val}</p>
