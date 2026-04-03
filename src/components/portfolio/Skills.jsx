@@ -25,7 +25,7 @@ const up = (delay = 0) => ({
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-28 px-6 bg-earth-100/60">
+    <section id="skills" className="py-28 px-6 bg-[#efe9e1]">
       <div className="max-w-6xl mx-auto">
 
         <motion.div {...up()} className="mb-16">

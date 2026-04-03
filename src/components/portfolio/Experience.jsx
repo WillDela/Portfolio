@@ -58,7 +58,7 @@ const up = (delay = 0) => ({
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-28 px-6 bg-earth-100/60">
+    <section id="experience" className="py-28 px-6 bg-[#ebf0ec]">
       <div className="max-w-6xl mx-auto">
 
         <motion.div {...up()} className="mb-16">

@@ -50,29 +50,29 @@ const up = (delay = 0) => ({
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-28 px-6">
+    <section id="projects" className="py-28 px-6 bg-forest-900 text-earth-50">
       <div className="max-w-6xl mx-auto">
 
         <motion.div {...up()} className="mb-16">
-          <p className="font-display text-[7rem] font-bold leading-none text-forest-900/[0.04] select-none -mb-10">
+          <p className="font-display text-[7rem] font-bold leading-none text-earth-50/[0.04] select-none -mb-10">
             03
           </p>
-          <h2 className="font-display font-bold text-5xl md:text-6xl text-forest-900 tracking-tight leading-none">
+          <h2 className="font-display font-bold text-5xl md:text-6xl text-earth-50 tracking-tight leading-none">
             Projects
           </h2>
-          <div className="h-px w-16 bg-forest-900/20 mt-6" />
+          <div className="h-px w-16 bg-earth-50/20 mt-6" />
         </motion.div>
 
         {/* Featured — Korsana */}
         <motion.div
           {...up(0.1)}
-          className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center mb-20 pb-20 border-b border-forest-900/10"
+          className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center mb-20 pb-20 border-b border-earth-50/10"
         >
           <a
             href={FEATURED.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="block group border-2 border-forest-900 overflow-hidden"
+            className="block group border-2 border-earth-50/10 overflow-hidden"
           >
             <img
               src={FEATURED.image}
@@ -84,28 +84,28 @@ export default function Projects() {
           <div className="space-y-5">
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <span className="text-[10px] font-bold tracking-widest uppercase text-clay-500 border border-clay-500/40 px-2 py-0.5">
+                <span className="text-[10px] font-bold tracking-widest uppercase text-clay-400 border border-clay-400/40 px-2 py-0.5">
                   {FEATURED.tag}
                 </span>
-                <span className="text-xs text-forest-800/45 font-medium">{FEATURED.period}</span>
+                <span className="text-xs text-earth-50/50 font-medium">{FEATURED.period}</span>
               </div>
               <a href={FEATURED.link} target="_blank" rel="noopener noreferrer" className="group/t">
-                <h3 className="font-display font-bold text-4xl md:text-5xl text-forest-900 tracking-tight leading-none group-hover/t:text-clay-500 transition-colors">
+                <h3 className="font-display font-bold text-4xl md:text-5xl text-earth-50 tracking-tight leading-none group-hover/t:text-clay-400 transition-colors">
                   {FEATURED.title}
                 </h3>
               </a>
-              <p className="text-forest-800/50 text-sm font-medium mt-1">{FEATURED.subtitle}</p>
+              <p className="text-earth-50/60 text-sm font-medium mt-1">{FEATURED.subtitle}</p>
             </div>
-            <p className="text-forest-800 leading-relaxed text-[15px]">{FEATURED.description}</p>
-            <ul className="space-y-2.5 pt-1 border-t border-forest-900/10">
+            <p className="text-earth-50/80 leading-relaxed text-[15px]">{FEATURED.description}</p>
+            <ul className="space-y-2.5 pt-1 border-t border-earth-50/10">
               {FEATURED.bullets.map((b, i) => (
-                <li key={i} className="flex items-start gap-3 text-sm text-forest-800/70 leading-relaxed pt-2.5">
-                  <span className="mt-[7px] w-1 h-1 rounded-full bg-clay-500 shrink-0" />
+                <li key={i} className="flex items-start gap-3 text-sm text-earth-50/70 leading-relaxed pt-2.5">
+                  <span className="mt-[7px] w-1 h-1 rounded-full bg-clay-400 shrink-0" />
                   {b}
                 </li>
               ))}
             </ul>
-            <p className="text-xs text-forest-800/40 tracking-wide">
+            <p className="text-xs text-earth-50/40 tracking-wide">
               {FEATURED.tech.join(' · ')}
             </p>
           </div>
@@ -119,7 +119,7 @@ export default function Projects() {
                 href={p.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block group border-2 border-forest-900 overflow-hidden mb-5"
+                className="block group border-2 border-earth-50/10 overflow-hidden mb-5"
               >
                 <img
                   src={p.image}
@@ -134,19 +134,19 @@ export default function Projects() {
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <a href={p.link} target="_blank" rel="noopener noreferrer" className="group/t">
-                      <h3 className="font-display font-bold text-2xl text-forest-900 tracking-tight group-hover/t:text-clay-500 transition-colors">
+                      <h3 className="font-display font-bold text-2xl text-earth-50 tracking-tight group-hover/t:text-clay-400 transition-colors">
                         {p.title}
                       </h3>
                     </a>
-                    <p className="text-xs text-forest-800/45 font-medium mt-0.5">{p.subtitle}</p>
+                    <p className="text-xs text-earth-50/50 font-medium mt-0.5">{p.subtitle}</p>
                   </div>
-                  <span className="text-xs text-forest-800/35 font-medium whitespace-nowrap mt-1">{p.period}</span>
+                  <span className="text-xs text-earth-50/40 font-medium whitespace-nowrap mt-1">{p.period}</span>
                 </div>
                 {p.award && (
-                  <p className="text-xs font-bold tracking-wide text-clay-500">◆ {p.award}</p>
+                  <p className="text-xs font-bold tracking-wide text-clay-400">◆ {p.award}</p>
                 )}
-                <p className="text-sm text-forest-800/70 leading-relaxed">{p.description}</p>
-                <p className="text-xs text-forest-800/40 tracking-wide pt-1">{p.tech.join(' · ')}</p>
+                <p className="text-sm text-earth-50/70 leading-relaxed">{p.description}</p>
+                <p className="text-xs text-earth-50/40 tracking-wide pt-1">{p.tech.join(' · ')}</p>
               </div>
             </motion.div>
           ))}
