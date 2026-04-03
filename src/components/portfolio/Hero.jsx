@@ -84,6 +84,12 @@ export default function Hero({ scrollToSection }) {
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden bg-earth-50 border-b-[4px] border-forest-900"
     >
+      {/* Watermark Text */}
+      <div className="w-full flex items-center justify-center opacity-10 pointer-events-none select-none overflow-hidden mt-4 z-0">
+        <span className="font-display font-black text-[12vw] md:text-[8vw] lg:text-[12vw] leading-none text-forest-900 tracking-tighter whitespace-nowrap">
+          ALWAYS GROWING
+        </span>
+      </div>
       {/* The Realistic Oak Tree */}
       <div className="w-full max-w-[550px] mx-auto relative z-10 drop-shadow-xl mt-12 md:mt-0">
         <svg
