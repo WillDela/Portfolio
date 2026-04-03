@@ -58,7 +58,7 @@ const up = (delay = 0) => ({
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-28 bg-earth-50 border-b-[4px] border-forest-900">
+    <section id="experience" className="py-28 border-b-[4px] border-forest-900">
       
       {/* Edge-to-Edge Brutalist Section Header */}
       <motion.div {...up()} className="mb-16 border-b-[4px] border-forest-900 pb-6 px-6 md:px-12 w-full flex items-end justify-between">

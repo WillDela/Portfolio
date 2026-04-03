@@ -82,7 +82,7 @@ export default function Hero({ scrollToSection }) {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden bg-earth-50 border-b-[4px] border-forest-900"
+      className="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden border-b-[4px] border-forest-900"
     >
       {/* Watermark Text */}
       <div className="w-full flex items-center justify-center opacity-10 pointer-events-none select-none overflow-hidden mt-4 z-0">
@@ -142,7 +142,7 @@ export default function Hero({ scrollToSection }) {
       </div>
 
       {/* Bottom Content Area - Continuous Full-Width Brutalist Layout */}
-      <div className="w-full text-center relative z-20 mt-auto border-t-[4px] border-forest-900 bg-earth-50 pt-16 pb-16 px-6">
+      <div className="w-full text-center relative z-20 mt-auto border-t-[4px] border-forest-900 pt-16 pb-16 px-6">
         <div className="max-w-5xl mx-auto">
           
           {/* Actual Name (Brutalist Display) */}

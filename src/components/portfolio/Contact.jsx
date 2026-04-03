@@ -17,7 +17,7 @@ const up = (delay = 0) => ({
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-28 bg-earth-50 relative overflow-hidden pb-10">
+    <section id="contact" className="py-28 relative overflow-hidden pb-10">
 
       {/* Strict architectural background pattern */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-[0.08]" aria-hidden="true" style={{ backgroundImage: 'linear-gradient(#1e2d1e 2px, transparent 2px), linear-gradient(90deg, #1e2d1e 2px, transparent 2px)', backgroundSize: '100px 100px' }} />

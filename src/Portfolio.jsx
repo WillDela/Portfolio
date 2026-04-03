@@ -43,25 +43,40 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="bg-earth-50 min-h-screen font-sans text-forest-900">
+    <div className="bg-earth-50 min-h-screen font-sans text-forest-900 relative overflow-hidden">
 
-      {/* Root background — sweeping arcs that connect the hero tree to the page */}
+      {/* Root background — subtle arcs connecting the hero tree and meandering through the page */}
       <div
         aria-hidden="true"
-        className="absolute left-1/2 -translate-x-1/2 pointer-events-none z-0 w-full max-w-3xl"
-        style={{ top: '92vh' }}
+        className="absolute left-1/2 -translate-x-1/2 pointer-events-none z-0 w-full max-w-5xl"
+        style={{ top: '80vh', height: '5000px' }}
       >
-        <svg viewBox="0 0 800 800" width="100%" height="800" preserveAspectRatio="xMidYMin slice">
-          <g opacity="0.04" stroke="#1e2d1e" fill="none" strokeLinecap="round">
-            <path d="M 400,0 L 400,800"            strokeWidth="8" />
-            <path d="M 400,0 Q 400,400 0,600"      strokeWidth="5" />
-            <path d="M 400,0 Q 400,400 800,600"    strokeWidth="5" />
-            <path d="M 400,0 Q 420,300 100,800"    strokeWidth="3.5" />
-            <path d="M 400,0 Q 380,300 700,800"    strokeWidth="3.5" />
-            <path d="M 400,0 Q 450,200 150,450"    strokeWidth="2.5" />
-            <path d="M 400,0 Q 350,200 650,450"    strokeWidth="2.5" />
-            <path d="M 400,0 Q 480,150 200,300"    strokeWidth="2" />
-            <path d="M 400,0 Q 320,150 600,300"    strokeWidth="2" />
+        <svg viewBox="0 0 800 5000" width="100%" height="5000" preserveAspectRatio="none">
+          <g opacity="0.15" stroke="#1e2d1e" fill="none" strokeLinecap="round" strokeLinejoin="round">
+            {/* Center Trunk/Root mass dropping from Hero */}
+            <path d="M 400,0 C 400,300 380,600 350,900" strokeWidth="32" />
+            <path d="M 400,0 C 400,400 450,700 480,1000" strokeWidth="24" />
+            
+            {/* Huge Left Root System (Frames the left gutter) */}
+            <path d="M 400,0 C 300,500 50,1000 40,2000 S 150,3000 60,4000 S 100,4800 50,5000" strokeWidth="24" />
+            <path d="M 380,200 C 250,800 100,1200 80,1800 S 200,2800 120,3500 S 180,4500 80,5000" strokeWidth="16" />
+            <path d="M 300,500 C 150,700 20,1300 10,1800" strokeWidth="12" />
+            
+            {/* Huge Right Root System (Frames the right gutter) */}
+            <path d="M 400,0 C 500,600 750,1100 760,2100 S 650,3100 740,4100 S 700,4800 750,5000" strokeWidth="24" />
+            <path d="M 420,200 C 550,900 700,1300 720,1900 S 600,2900 680,3600 S 620,4600 720,5000" strokeWidth="16" />
+            <path d="M 500,600 C 650,800 780,1400 790,1900" strokeWidth="12" />
+
+            {/* Connecting Vines/Roots that crawl horizontally behind sections */}
+            <path d="M 80,1800 C 250,1900 450,1850 550,2100" strokeWidth="8" />
+            <path d="M 720,1900 C 500,2000 300,2250 150,2500" strokeWidth="8" />
+            <path d="M 60,4000 C 300,4100 500,3950 650,4200" strokeWidth="10" />
+
+            {/* Accent Root Tips / Spurs */}
+            <path d="M 40,2000 Q 150,2050 100,2200" strokeWidth="8" />
+            <path d="M 760,2100 Q 600,2150 680,2300" strokeWidth="8" />
+            <path d="M 120,3500 Q 250,3600 200,3800" strokeWidth="10" />
+            <path d="M 680,3600 Q 550,3700 600,3900" strokeWidth="10" />
           </g>
         </svg>
       </div>
