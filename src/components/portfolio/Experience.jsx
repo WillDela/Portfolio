@@ -18,7 +18,7 @@ const JOBS = [
     role: 'Machine Learning Fellow',
     company: 'Handshake',
     location: 'Remote',
-    period: 'Feb 2026 – Aug 2026',
+    period: 'Feb 2026 – Present',
     tag: 'Current',
     bullets: [
       'Conducting Reinforcement Learning from Human Feedback (RLHF) on multimodal LLM and vision models — evaluating 200+ prompts to reduce hallucinations and improve model alignment for production deployment pipelines.',

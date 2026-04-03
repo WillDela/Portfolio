@@ -8,13 +8,13 @@ const FEATURED = {
   tag: 'In Development',
   image: 'https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=900&q=80',
   description:
-    'Full-stack AI coaching platform that syncs your Strava data and generates personalized race training plans — blending established periodization frameworks with Claude AI for adaptive, goal-specific coaching.',
+    'Full-stack AI coaching platform that syncs your Strava data and generates personalized race training plans — blending Gemini AI and personal analysis for adaptive, goal-specific coaching.',
   bullets: [
     'Architecting in Golang (Gin) and React with Strava OAuth 2.0 for real-time activity sync, served by a RESTful API backed by PostgreSQL and Redis.',
-    'Building a race readiness dashboard with pace-to-goal comparison, weekly mileage tracking, and AI-driven coaching insights via the Claude API.',
+    'Building a race readiness dashboard with pace-to-goal comparison, weekly mileage tracking, and AI-driven coaching insights via the Gemini API.',
   ],
-  tech: ['Golang', 'TypeScript', 'React', 'Claude API', 'Strava OAuth 2.0', 'PostgreSQL', 'Redis'],
-  link: 'https://github.com/WillDela',
+  tech: ['Golang', 'Javascript', 'React', 'Gemini API', 'Strava OAuth 2.0', 'PostgreSQL', 'Redis'],
+  link: 'https://github.com/WillDela/Korsana',
 };
 
 const PROJECTS = [

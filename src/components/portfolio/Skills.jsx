@@ -8,11 +8,11 @@ const SKILLS = [
   },
   {
     category: 'Frameworks & Libraries',
-    items: ['React', 'Node.js', 'Express', 'TensorFlow', 'React Native', 'NumPy', 'Pandas', 'Bootstrap5'],
+    items: ['React', 'Node.js', 'Express', 'TensorFlow', 'NumPy', 'Pandas', 'Bootstrap5'],
   },
   {
     category: 'Tools & Platforms',
-    items: ['Git', 'GitHub', 'Google Cloud', 'Auth0', 'Supabase', 'PostgreSQL', 'Redis', 'VS Code'],
+    items: ['Git', 'GitHub', 'Google Cloud', 'Auth0', 'Supabase', 'PostgreSQL', 'Redis'],
   },
 ];
 

@@ -45,13 +45,13 @@ export default function About() {
             <p className="text-lg text-forest-800 leading-relaxed">
               I'm a Computer Science student at{' '}
               <span className="font-semibold text-forest-900">Florida International University</span>{' '}
-              building full-stack applications and AI systems.
+              building full-stack applications and AI systems. Incoming Datagog SWE Intern (Summer 2026)
             </p>
 
 
 
             <p className="text-lg text-forest-800 leading-relaxed">
-              Outside of engineering I co-founded{' '}
+              Outside of engineering I completed my the co-founded{' '}
               <span className="font-semibold text-forest-900">Panthers Run Club</span> — growing it to
               100+ members and guiding 50+ beginners through their first races. Running shapes how I
               approach everything: consistent effort, progressive overload, showing up.
