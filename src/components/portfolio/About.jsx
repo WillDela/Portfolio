@@ -17,7 +17,7 @@ export default function About() {
         <h2 className="font-display font-black text-6xl md:text-8xl text-forest-900 tracking-tighter uppercase leading-none">
           About
         </h2>
-        <p className="font-mono text-2xl md:text-4xl font-bold text-forest-900 leading-none">
+        <p className="font-mono text-2xl md:text-4xl font-bold text-clay-500 leading-none">
           01
         </p>
       </motion.div>
@@ -28,7 +28,7 @@ export default function About() {
 
           {/* Photo */}
           <motion.div {...up(0.15)}>
-            <div className="p-2 border-2 border-forest-900 bg-earth-100 shadow-[8px_8px_0px_0px_#1e2d1e]">
+            <div className="p-2 border-2 border-forest-900 bg-earth-100 shadow-[8px_8px_0px_0px_#c58361]">
               <img
                 src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68f98dc8386ebb34a4e98146/72d1e68b5_photo.jpg"
                 alt="William Delaosa"

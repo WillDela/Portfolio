@@ -27,7 +27,7 @@ export default function Contact() {
         <h2 className="font-display font-black text-6xl md:text-8xl text-forest-900 tracking-tighter uppercase leading-none">
           Contact
         </h2>
-        <p className="font-mono text-2xl md:text-4xl font-bold text-forest-900 leading-none">
+        <p className="font-mono text-2xl md:text-4xl font-bold text-clay-500 leading-none">
           05
         </p>
       </motion.div>
@@ -56,10 +56,10 @@ export default function Contact() {
                   href={href}
                   target={external ? '_blank' : undefined}
                   rel={external ? 'noopener noreferrer' : undefined}
-                  className="group flex items-center justify-between gap-5 p-6 border-2 border-forest-900 bg-earth-50 shadow-[6px_6px_0px_0px_#1e2d1e] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[10px_10px_0px_0px_#1e2d1e] transition-all"
+                  className="group flex items-center justify-between gap-5 p-6 border-[3px] border-forest-900 bg-earth-50 shadow-[6px_6px_0px_0px_#1e2d1e] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[10px_10px_0px_0px_#c58361] transition-all"
                 >
                   <div className="flex items-center gap-6">
-                    <div className="p-3 border-2 border-earth-50 bg-forest-900 text-earth-50 group-hover:bg-moss-500 transition-colors">
+                    <div className="p-3 border-[3px] border-forest-900 bg-forest-900 text-earth-50 group-hover:bg-clay-500 group-hover:text-earth-50 transition-colors">
                       <Icon className="w-6 h-6 shrink-0" />
                     </div>
                     <div>

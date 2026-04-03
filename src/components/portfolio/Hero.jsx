@@ -151,14 +151,20 @@ export default function Hero({ scrollToSection }) {
 
           {/* Tagline / Brutalist Badge */}
           <motion.div
-            className="inline-block border-2 border-forest-900 bg-earth-100 shadow-[6px_6px_0px_0px_#1e2d1e] py-3 px-8 mb-12"
+            className="font-mono font-bold text-sm md:text-xl text-forest-900 uppercase grid grid-cols-2 md:grid-cols-3 border-[4px] border-forest-900 items-center bg-earth-100 shadow-[10px_10px_0px_0px_#c58361] mb-12"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 2.6 }}
           >
-            <p className="font-mono text-xs md:text-sm font-bold tracking-widest uppercase text-forest-900">
-              Software Engineer&nbsp;&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;Runner&nbsp;&nbsp;·&nbsp;&nbsp;Miami, FL
-            </p>
+            <span className="col-span-2 md:col-span-1 px-4 py-2 tracking-widest hover:bg-moss-500 hover:text-forest-900 transition-colors cursor-default">
+              SOFTWARE ENGINEER
+            </span>
+            <span className="col-span-1 px-4 py-2 border-y-[4px] md:border-y-0 md:border-x-[4px] border-forest-900 tracking-widest hover:bg-clay-500 hover:text-earth-50 transition-colors cursor-default">
+              RUNNER
+            </span>
+            <span className="col-span-2 md:col-span-1 px-4 py-2 tracking-widest hover:bg-moss-500 hover:text-forest-900 transition-colors cursor-default">
+              MIAMI, FL
+            </span>
           </motion.div>
 
           {/* CTAs - Hard Shadows & Borders */}

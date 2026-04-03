@@ -57,7 +57,7 @@ export default function Projects() {
         <h2 className="font-display font-black text-6xl md:text-8xl text-forest-900 tracking-tighter uppercase leading-none">
           Projects
         </h2>
-        <p className="font-mono text-2xl md:text-4xl font-bold text-forest-900 leading-none">
+        <p className="font-mono text-2xl md:text-4xl font-bold text-clay-500 leading-none">
           03
         </p>
       </motion.div>
@@ -85,7 +85,7 @@ export default function Projects() {
           <div className="flex flex-col justify-center">
             <div>
               <div className="flex items-center justify-between mb-4 border-b-2 border-forest-900 pb-4">
-                <span className="font-mono text-xs font-bold tracking-widest uppercase text-earth-50 bg-forest-900 px-3 py-1 shadow-[2px_2px_0px_0px_#1e2d1e]">
+                <span className="font-mono text-xs font-bold tracking-widest uppercase text-forest-900 bg-moss-500 border border-forest-900 px-3 py-1 shadow-[2px_2px_0px_0px_#1e2d1e]">
                   {FEATURED.tag}
                 </span>
                 <span className="font-mono text-xs text-forest-900/70 font-bold uppercase">{FEATURED.period}</span>
@@ -122,12 +122,12 @@ export default function Projects() {
         {/* Grid — Sylly + AI Garbage */}
         <div className="grid md:grid-cols-2 gap-10">
           {PROJECTS.map((p, i) => (
-            <motion.div key={p.title} {...up(0.1 + i * 0.1)} className="flex flex-col border-[3px] border-forest-900 bg-earth-50 hover:bg-earth-100 transition-colors">
+            <motion.div key={p.title} {...up(0.1 + i * 0.1)} className="flex flex-col border-[3px] border-forest-900 bg-earth-50 hover:bg-[#e8decb] hover:border-clay-500 transition-colors">
               <a
                 href={p.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block border-b-[3px] border-forest-900 p-2 bg-earth-100"
+                className="block border-b-[3px] border-forest-900 p-2 bg-[#e8decb]/50"
               >
                 <img
                   src={p.image}
@@ -152,7 +152,7 @@ export default function Projects() {
                 </div>
                 
                 {p.award && (
-                  <p className="font-mono text-[10px] font-bold tracking-widest uppercase text-earth-50 bg-forest-900 px-2 py-1 shadow-[2px_2px_0px_0px_#1e2d1e] inline-block self-start mb-4">
+                  <p className="font-mono text-[10px] font-bold tracking-widest uppercase text-earth-50 bg-clay-500 border border-forest-900 px-2 py-1 shadow-[2px_2px_0px_0px_#1e2d1e] inline-block self-start mb-4">
                     {p.award}
                   </p>
                 )}
