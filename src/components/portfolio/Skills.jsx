@@ -25,30 +25,30 @@ const up = (delay = 0) => ({
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-28 px-6 bg-[#efe9e1]">
+    <section id="skills" className="py-28 px-6 bg-earth-100 border-y-4 border-forest-900">
       <div className="max-w-6xl mx-auto">
 
-        <motion.div {...up()} className="mb-16">
-          <p className="font-display text-[7rem] font-bold leading-none text-forest-900/[0.04] select-none -mb-10">
+        {/* Brutalist Section Header */}
+        <motion.div {...up()} className="mb-16 border-b-4 border-forest-900 pb-4 flex items-end justify-between">
+          <p className="font-mono text-2xl md:text-4xl font-bold text-forest-900 leading-none">
             04
           </p>
-          <h2 className="font-display font-bold text-5xl md:text-6xl text-forest-900 tracking-tight leading-none">
+          <h2 className="font-display font-black text-6xl md:text-8xl text-forest-900 tracking-tighter uppercase leading-none text-right">
             Skills
           </h2>
-          <div className="h-px w-16 bg-forest-900/20 mt-6" />
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-10 md:gap-16">
           {SKILLS.map((group, i) => (
-            <motion.div key={group.category} {...up(0.1 + i * 0.1)}>
-              <p className="text-xs font-bold tracking-widest uppercase text-clay-500 mb-6">
+            <motion.div key={group.category} {...up(0.1 + i * 0.1)} className="border-2 border-forest-900 shadow-[6px_6px_0px_0px_#1e2d1e] bg-earth-50 p-8 flex flex-col">
+              <p className="font-mono text-xs font-bold tracking-widest uppercase text-earth-50 bg-forest-900 px-3 py-2 shadow-[2px_2px_0px_0px_#c58361] inline-block self-start mb-6">
                 {group.category}
               </p>
-              <ul className="space-y-3">
+              <ul className="space-y-4 border-t-2 border-forest-900/20 pt-6 flex-grow">
                 {group.items.map((item) => (
-                  <li key={item} className="flex items-center gap-3 text-forest-900 font-medium">
-                    <span className="w-1 h-1 rounded-full bg-forest-900/25 shrink-0" />
-                    {item}
+                  <li key={item} className="flex items-start gap-4">
+                    <span className="w-2.5 h-2.5 bg-forest-900 shrink-0 mt-[6px] shadow-[2px_2px_0px_0px_#c58361]" />
+                    <span className="font-mono text-sm md:text-base font-bold text-forest-900 uppercase tracking-tight">{item}</span>
                   </li>
                 ))}
               </ul>

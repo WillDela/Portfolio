@@ -135,81 +135,74 @@ export default function Hero({ scrollToSection }) {
         </svg>
       </div>
 
-      {/* Bottom Content Area */}
-      <div className="w-full max-w-4xl mx-auto text-center relative z-20 mt-10 md:mt-8">
-        
-        {/* Actual Name (smaller, cleaner grounding element now that the giant text is in bg) */}
-        <motion.h2
-          className="font-display font-medium text-forest-900 tracking-widest leading-none text-2xl md:text-4xl mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: 'easeOut', delay: 2.6 }}
-        >
-          WILLIAM DELAOSA
-        </motion.h2>
-
-        {/* Divider */}
-        <motion.div
-          className="h-px bg-forest-900/20 max-w-xs mx-auto mb-6"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 0.8, delay: 2.8 }}
-          style={{ transformOrigin: 'center' }}
-        />
-
-        {/* Tagline */}
-        <motion.p
-          className="text-xs md:text-sm font-medium tracking-widest uppercase text-forest-900/50 mb-9"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 3.0 }}
-        >
-          Software Engineer&nbsp;&nbsp;·&nbsp;&nbsp;Builder&nbsp;&nbsp;·&nbsp;&nbsp;Runner&nbsp;&nbsp;·&nbsp;&nbsp;Miami, FL
-        </motion.p>
-
-        {/* CTAs */}
-        <motion.div
-          className="flex items-center justify-center gap-10 mb-9"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 3.2 }}
-        >
-          <button
-            onClick={() => scrollToSection('projects')}
-            className="group flex items-center gap-3 text-sm font-semibold text-forest-900 hover:text-clay-500 transition-colors"
+      {/* Bottom Content Area - Brutalist Layout */}
+      <div className="w-full text-center relative z-20 mt-16 border-t-4 border-forest-900 bg-earth-50 pt-16 pb-12">
+        <div className="max-w-5xl mx-auto px-6">
+          
+          {/* Actual Name (Brutalist Display) */}
+          <motion.h2
+            className="font-display font-black text-forest-900 tracking-tighter leading-none text-6xl md:text-8xl lg:text-[7rem] uppercase mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: 'easeOut', delay: 2.4 }}
           >
-            <span className="h-px w-8 bg-current transition-all duration-300 group-hover:w-12" />
-            View Work
-          </button>
-          <button
-            onClick={() => scrollToSection('contact')}
-            className="group flex items-center gap-3 text-sm font-semibold text-forest-900 hover:text-clay-500 transition-colors"
-          >
-            Get in Touch
-            <span className="h-px w-8 bg-current transition-all duration-300 group-hover:w-12" />
-          </button>
-        </motion.div>
+            WILLIAM DELAOSA
+          </motion.h2>
 
-        {/* Socials */}
-        <motion.div
-          className="flex items-center justify-center gap-6"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 3.4 }}
-        >
-          <a href="https://github.com/WillDela" target="_blank" rel="noopener noreferrer"
-            className="text-forest-900/40 hover:text-forest-900 transition-colors" aria-label="GitHub">
-            <Github className="w-5 h-5" />
-          </a>
-          <a href="https://linkedin.com/in/williamdelaosa" target="_blank" rel="noopener noreferrer"
-            className="text-forest-900/40 hover:text-forest-900 transition-colors" aria-label="LinkedIn">
-            <Linkedin className="w-5 h-5" />
-          </a>
-          <a href="mailto:wdelaosa24@gmail.com"
-            className="text-forest-900/40 hover:text-forest-900 transition-colors" aria-label="Email">
-            <Mail className="w-5 h-5" />
-          </a>
-        </motion.div>
+          {/* Tagline / Brutalist Badge */}
+          <motion.div
+            className="inline-block border-2 border-forest-900 bg-earth-100 shadow-[6px_6px_0px_0px_#1e2d1e] py-3 px-8 mb-12"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 2.6 }}
+          >
+            <p className="font-mono text-xs md:text-sm font-bold tracking-widest uppercase text-forest-900">
+              Software Engineer&nbsp;&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;Runner&nbsp;&nbsp;·&nbsp;&nbsp;Miami, FL
+            </p>
+          </motion.div>
+
+          {/* CTAs - Hard Shadows & Borders */}
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 2.8 }}
+          >
+            <button
+              onClick={() => scrollToSection('projects')}
+              className="w-full sm:w-auto font-display text-lg font-bold uppercase tracking-wide text-earth-50 bg-forest-900 border-2 border-forest-900 shadow-[6px_6px_0px_0px_#c58361] hover:translate-y-1 hover:translate-x-1 hover:shadow-[0px_0px_0px_0px_#c58361] active:translate-y-2 active:translate-x-2 active:shadow-none transition-all py-4 px-10"
+            >
+              View Work
+            </button>
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="w-full sm:w-auto font-display text-lg font-bold uppercase tracking-wide text-forest-900 bg-earth-50 border-2 border-forest-900 shadow-[6px_6px_0px_0px_#1e2d1e] hover:translate-y-1 hover:translate-x-1 hover:shadow-[0px_0px_0px_0px_#1e2d1e] active:translate-y-2 active:translate-x-2 active:shadow-none transition-all py-4 px-10"
+            >
+              Get in Touch
+            </button>
+          </motion.div>
+
+          {/* Socials - Brutalist Grid */}
+          <motion.div
+            className="flex items-center justify-center gap-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 3.0 }}
+          >
+            <a href="https://github.com/WillDela" target="_blank" rel="noopener noreferrer"
+              className="p-3 border-2 border-forest-900 text-forest-900 shadow-[4px_4px_0px_0px_#1e2d1e] hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all bg-earth-100" aria-label="GitHub">
+              <Github className="w-6 h-6" />
+            </a>
+            <a href="https://linkedin.com/in/williamdelaosa" target="_blank" rel="noopener noreferrer"
+              className="p-3 border-2 border-forest-900 text-forest-900 shadow-[4px_4px_0px_0px_#1e2d1e] hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all bg-earth-100" aria-label="LinkedIn">
+              <Linkedin className="w-6 h-6" />
+            </a>
+            <a href="mailto:wdelaosa24@gmail.com"
+              className="p-3 border-2 border-forest-900 text-forest-900 shadow-[4px_4px_0px_0px_#1e2d1e] hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all bg-earth-100" aria-label="Email">
+              <Mail className="w-6 h-6" />
+            </a>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

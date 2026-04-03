@@ -53,100 +53,121 @@ export default function Projects() {
     <section id="projects" className="py-28 px-6 bg-forest-900 text-earth-50">
       <div className="max-w-6xl mx-auto">
 
-        <motion.div {...up()} className="mb-16">
-          <p className="font-display text-[7rem] font-bold leading-none text-earth-50/[0.04] select-none -mb-10">
-            03
-          </p>
-          <h2 className="font-display font-bold text-5xl md:text-6xl text-earth-50 tracking-tight leading-none">
+        {/* Brutalist Section Header */}
+        <motion.div {...up()} className="mb-16 border-b-4 border-earth-50 pb-4 flex items-end justify-between">
+          <h2 className="font-display font-black text-6xl md:text-8xl text-earth-50 tracking-tighter uppercase leading-none">
             Projects
           </h2>
-          <div className="h-px w-16 bg-earth-50/20 mt-6" />
+          <p className="font-mono text-2xl md:text-4xl font-bold text-earth-50 leading-none">
+            03
+          </p>
         </motion.div>
 
         {/* Featured — Korsana */}
         <motion.div
           {...up(0.1)}
-          className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center mb-20 pb-20 border-b border-earth-50/10"
+          className="grid md:grid-cols-2 bg-forest-900 border-2 border-earth-50 shadow-[8px_8px_0px_0px_#fdfbf7] mb-20"
         >
           <a
             href={FEATURED.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="block group border-2 border-earth-50/10 overflow-hidden"
+            className="block border-b-2 md:border-b-0 md:border-r-2 border-earth-50 overflow-hidden relative group p-2 bg-forest-800"
           >
+            <div className="absolute inset-0 bg-earth-50/0 group-hover:bg-earth-50/10 transition-colors z-10 point-events-none" />
             <img
               src={FEATURED.image}
               alt={FEATURED.title}
-              className="w-full aspect-[4/3] object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
+              className="w-full h-full object-cover border-2 border-forest-900"
             />
           </a>
 
-          <div className="space-y-5">
+          <div className="p-8 md:p-12 flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-3 mb-2">
-                <span className="text-[10px] font-bold tracking-widest uppercase text-clay-400 border border-clay-400/40 px-2 py-0.5">
+              <div className="flex items-center justify-between mb-4">
+                <span className="font-mono text-[10px] font-bold tracking-widest uppercase text-forest-900 bg-earth-50 px-3 py-1 shadow-[2px_2px_0px_0px_#c58361]">
                   {FEATURED.tag}
                 </span>
-                <span className="text-xs text-earth-50/50 font-medium">{FEATURED.period}</span>
+                <span className="font-mono text-xs text-earth-50/70 font-bold uppercase">{FEATURED.period}</span>
               </div>
-              <a href={FEATURED.link} target="_blank" rel="noopener noreferrer" className="group/t">
-                <h3 className="font-display font-bold text-4xl md:text-5xl text-earth-50 tracking-tight leading-none group-hover/t:text-clay-400 transition-colors">
+              <a href={FEATURED.link} target="_blank" rel="noopener noreferrer" className="group/t inline-block mb-2">
+                <h3 className="font-display font-black text-5xl md:text-6xl text-earth-50 tracking-tighter leading-none hover:text-clay-500 transition-colors uppercase">
                   {FEATURED.title}
                 </h3>
               </a>
-              <p className="text-earth-50/60 text-sm font-medium mt-1">{FEATURED.subtitle}</p>
+              <p className="font-mono text-earth-50 font-bold uppercase tracking-wide border-b-2 border-earth-50/20 pb-4 mb-4">{FEATURED.subtitle}</p>
             </div>
-            <p className="text-earth-50/80 leading-relaxed text-[15px]">{FEATURED.description}</p>
-            <ul className="space-y-2.5 pt-1 border-t border-earth-50/10">
+            
+            <p className="font-mono text-earth-50/80 leading-relaxed text-sm mb-6">{FEATURED.description}</p>
+            
+            <ul className="space-y-4 pt-4 border-t-2 border-earth-50/20 mb-8">
               {FEATURED.bullets.map((b, i) => (
-                <li key={i} className="flex items-start gap-3 text-sm text-earth-50/70 leading-relaxed pt-2.5">
-                  <span className="mt-[7px] w-1 h-1 rounded-full bg-clay-400 shrink-0" />
-                  {b}
+                <li key={i} className="flex items-start gap-4">
+                  <span className="mt-[8px] w-2.5 h-2.5 bg-earth-50 shrink-0 shadow-[2px_2px_0px_0px_#c58361]" />
+                  <p className="font-mono text-sm text-earth-50/80 leading-relaxed">{b}</p>
                 </li>
               ))}
             </ul>
-            <p className="text-xs text-earth-50/40 tracking-wide">
-              {FEATURED.tech.join(' · ')}
-            </p>
+
+            <div className="flex flex-wrap gap-2 mt-auto">
+              {FEATURED.tech.map((t, i) => (
+                <span key={i} className="font-mono text-[10px] uppercase tracking-widest border border-earth-50/40 text-earth-50 px-2 py-1">
+                  {t}
+                </span>
+              ))}
+            </div>
           </div>
         </motion.div>
 
         {/* Grid — Sylly + AI Garbage */}
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-10">
           {PROJECTS.map((p, i) => (
-            <motion.div key={p.title} {...up(0.1 + i * 0.1)}>
+            <motion.div key={p.title} {...up(0.1 + i * 0.1)} className="flex flex-col bg-forest-900 border-2 border-earth-50 shadow-[6px_6px_0px_0px_#fdfbf7]">
               <a
                 href={p.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block group border-2 border-earth-50/10 overflow-hidden mb-5"
+                className="block border-b-2 border-earth-50 p-2 bg-forest-800"
               >
                 <img
                   src={p.image}
                   alt={p.title}
-                  className="w-full aspect-[16/9] object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  className="w-full aspect-[16/9] object-cover border-2 border-forest-900 hover:opacity-90 transition-opacity"
                   onError={(e) => {
                     e.target.src = 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80';
                   }}
                 />
               </a>
-              <div className="space-y-2.5">
-                <div className="flex items-start justify-between gap-4">
+              <div className="p-6 md:p-8 flex flex-col flex-grow">
+                <div className="flex items-start justify-between gap-4 mb-4">
                   <div>
-                    <a href={p.link} target="_blank" rel="noopener noreferrer" className="group/t">
-                      <h3 className="font-display font-bold text-2xl text-earth-50 tracking-tight group-hover/t:text-clay-400 transition-colors">
+                    <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-block group/t mb-1">
+                      <h3 className="font-display font-black text-3xl md:text-4xl text-earth-50 tracking-tighter uppercase leading-none hover:text-clay-500 transition-colors">
                         {p.title}
                       </h3>
                     </a>
-                    <p className="text-xs text-earth-50/50 font-medium mt-0.5">{p.subtitle}</p>
+                    <p className="font-mono text-xs text-earth-50 font-bold uppercase">{p.subtitle}</p>
                   </div>
-                  <span className="text-xs text-earth-50/40 font-medium whitespace-nowrap mt-1">{p.period}</span>
+                  <span className="font-mono text-xs text-earth-50/60 font-bold uppercase whitespace-nowrap">{p.period}</span>
                 </div>
+                
                 {p.award && (
-                  <p className="text-xs font-bold tracking-wide text-clay-400">◆ {p.award}</p>
+                  <p className="font-mono text-[10px] font-bold tracking-widest uppercase text-forest-900 bg-clay-500 px-2 py-1 shadow-[2px_2px_0px_0px_#fdfbf7] inline-block self-start mb-4">
+                    {p.award}
+                  </p>
                 )}
-                <p className="text-sm text-earth-50/70 leading-relaxed">{p.description}</p>
-                <p className="text-xs text-earth-50/40 tracking-wide pt-1">{p.tech.join(' · ')}</p>
+                
+                <p className="font-mono text-sm text-earth-50/80 leading-relaxed mb-6 border-t-2 border-earth-50/20 pt-4 flex-grow">
+                  {p.description}
+                </p>
+                
+                <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t-2 border-earth-50/20">
+                  {p.tech.map((t, j) => (
+                    <span key={j} className="font-mono text-[10px] uppercase tracking-widest border border-earth-50/40 text-earth-50 px-2 py-1">
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}

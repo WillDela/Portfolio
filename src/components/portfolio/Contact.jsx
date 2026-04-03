@@ -18,33 +18,21 @@ const up = (delay = 0) => ({
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-28 px-6 bg-earth-900 relative overflow-hidden text-earth-50">
+    <section id="contact" className="py-28 px-6 bg-forest-900 relative overflow-hidden text-earth-50">
 
-      {/* Subtle root pattern */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl pointer-events-none" aria-hidden="true">
-        <svg viewBox="0 0 800 160" width="100%" height="160" preserveAspectRatio="xMidYMin meet">
-          <g opacity="0.08" stroke="#fdfbf7" fill="none" strokeLinecap="round">
-            <path d="M 400,0 L 400,160"           strokeWidth="6" />
-            <path d="M 400,0 Q 400,80 200,160"    strokeWidth="4" />
-            <path d="M 400,0 Q 400,80 600,160"    strokeWidth="4" />
-            <path d="M 400,0 Q 400,60 100,120"    strokeWidth="3" />
-            <path d="M 400,0 Q 400,60 700,120"    strokeWidth="3" />
-            <path d="M 400,0 Q 400,40 20,80"      strokeWidth="2" />
-            <path d="M 400,0 Q 400,40 780,80"     strokeWidth="2" />
-          </g>
-        </svg>
-      </div>
+      {/* Strict architectural background pattern */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-[0.03]" aria-hidden="true" style={{ backgroundImage: 'linear-gradient(#fdfbf7 2px, transparent 2px), linear-gradient(90deg, #fdfbf7 2px, transparent 2px)', backgroundSize: '100px 100px' }} />
 
       <div className="max-w-6xl mx-auto relative z-10">
 
-        <motion.div {...up()} className="mb-16">
-          <p className="font-display text-[7rem] font-bold leading-none text-earth-50/[0.04] select-none -mb-10">
-            06
-          </p>
-          <h2 className="font-display font-bold text-5xl md:text-6xl text-earth-50 tracking-tight leading-none">
-            Get in Touch
+        {/* Brutalist Section Header */}
+        <motion.div {...up()} className="mb-16 border-b-4 border-earth-50 pb-4 flex items-end justify-between">
+          <h2 className="font-display font-black text-6xl md:text-8xl text-earth-50 tracking-tighter uppercase leading-none">
+            Contact
           </h2>
-          <div className="h-px w-16 bg-earth-50/20 mt-6" />
+          <p className="font-mono text-2xl md:text-4xl font-bold text-earth-50 leading-none">
+            05
+          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-16 lg:gap-24">
@@ -60,31 +48,34 @@ export default function Contact() {
             </p>
           </motion.div>
 
-          {/* Links */}
+          {/* Links as Brutalist Blocks */}
           <motion.div {...up(0.2)}>
-            <ul>
+            <div className="flex flex-col gap-6">
               {LINKS.map(({ icon: Icon, label, value, href, external }) => (
-                <li key={label} className="border-t border-earth-50/10 last:border-b last:border-earth-50/10">
-                  <a
-                    href={href}
-                    target={external ? '_blank' : undefined}
-                    rel={external ? 'noopener noreferrer' : undefined}
-                    className="group flex items-center gap-5 py-5 text-earth-50 hover:text-clay-500 transition-colors"
-                  >
-                    <Icon className="w-4 h-4 shrink-0 text-earth-50/30 group-hover:text-clay-500 transition-colors" />
-                    <div className="flex-1 min-w-0">
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-earth-50/40 group-hover:text-clay-500/70 mb-0.5 transition-colors">
+                <a
+                  key={label}
+                  href={href}
+                  target={external ? '_blank' : undefined}
+                  rel={external ? 'noopener noreferrer' : undefined}
+                  className="group flex items-center justify-between gap-5 p-6 border-2 border-earth-50 bg-forest-800 shadow-[6px_6px_0px_0px_#fdfbf7] hover:translate-y-1 hover:translate-x-1 hover:shadow-[0px_0px_0px_0px_#fdfbf7] transition-all"
+                >
+                  <div className="flex items-center gap-6">
+                    <div className="p-3 border-2 border-earth-50 bg-forest-900 group-hover:bg-earth-50 group-hover:text-forest-900 transition-colors">
+                      <Icon className="w-6 h-6 shrink-0" />
+                    </div>
+                    <div>
+                      <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-earth-50/60 group-hover:text-earth-50 mb-1 transition-colors">
                         {label}
                       </p>
-                      <p className="font-medium text-sm truncate">{value}</p>
+                      <p className="font-mono font-bold text-lg text-earth-50 truncate">{value}</p>
                     </div>
-                    <span className="text-earth-50/20 group-hover:text-clay-500/50 transition-all group-hover:translate-x-1 inline-block">
-                      →
-                    </span>
-                  </a>
-                </li>
+                  </div>
+                  <span className="font-mono font-black text-2xl text-earth-50 group-hover:rotate-45 transition-transform">
+                    →
+                  </span>
+                </a>
               ))}
-            </ul>
+            </div>
           </motion.div>
         </div>
 
