@@ -69,7 +69,7 @@ export default function Leadership() {
             <img
               src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68f98dc8386ebb34a4e98146/ef1e7f84c_WhatsAppImage2025-10-22at222745_40ec4697.jpg"
               alt="Panthers Run Club"
-              className="w-full aspect-[4/5] object-cover border-2 border-forest-900 grayscale hover:grayscale-0 transition-all duration-700"
+              className="w-full aspect-[4/5] object-cover border-2 border-forest-900"
               onError={(e) => {
                 e.target.src = 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=800&q=80';
               }}

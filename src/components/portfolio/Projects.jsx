@@ -50,68 +50,68 @@ const up = (delay = 0) => ({
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-28 px-6 bg-forest-900 text-earth-50">
-      <div className="max-w-6xl mx-auto">
+    <section id="projects" className="py-28 bg-earth-50 border-b-[4px] border-forest-900">
+      
+      {/* Edge-to-Edge Brutalist Section Header */}
+      <motion.div {...up()} className="mb-16 border-b-[4px] border-forest-900 pb-6 px-6 md:px-12 w-full flex items-end justify-between">
+        <h2 className="font-display font-black text-6xl md:text-8xl text-forest-900 tracking-tighter uppercase leading-none">
+          Projects
+        </h2>
+        <p className="font-mono text-2xl md:text-4xl font-bold text-forest-900 leading-none">
+          03
+        </p>
+      </motion.div>
 
-        {/* Brutalist Section Header */}
-        <motion.div {...up()} className="mb-16 border-b-4 border-earth-50 pb-4 flex items-end justify-between">
-          <h2 className="font-display font-black text-6xl md:text-8xl text-earth-50 tracking-tighter uppercase leading-none">
-            Projects
-          </h2>
-          <p className="font-mono text-2xl md:text-4xl font-bold text-earth-50 leading-none">
-            03
-          </p>
-        </motion.div>
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
 
-        {/* Featured — Korsana */}
+        {/* Featured — Korsana (Wireframe Row) */}
         <motion.div
           {...up(0.1)}
-          className="grid md:grid-cols-2 bg-forest-900 border-2 border-earth-50 shadow-[8px_8px_0px_0px_#fdfbf7] mb-20"
+          className="grid md:grid-cols-2 border-b-[4px] border-forest-900 mb-20 pb-16"
         >
           <a
             href={FEATURED.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="block border-b-2 md:border-b-0 md:border-r-2 border-earth-50 overflow-hidden relative group p-2 bg-forest-800"
+            className="block border-2 border-forest-900 p-2 bg-earth-100 hover:bg-forest-900/5 transition-colors mb-8 md:mb-0 md:mr-10 xl:mr-16"
           >
-            <div className="absolute inset-0 bg-earth-50/0 group-hover:bg-earth-50/10 transition-colors z-10 point-events-none" />
             <img
               src={FEATURED.image}
               alt={FEATURED.title}
-              className="w-full h-full object-cover border-2 border-forest-900"
+              className="w-full aspect-[4/3] object-cover border-2 border-forest-900"
             />
           </a>
 
-          <div className="p-8 md:p-12 flex flex-col justify-between">
+          <div className="flex flex-col justify-center">
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="font-mono text-[10px] font-bold tracking-widest uppercase text-forest-900 bg-earth-50 px-3 py-1 shadow-[2px_2px_0px_0px_#c58361]">
+              <div className="flex items-center justify-between mb-4 border-b-2 border-forest-900 pb-4">
+                <span className="font-mono text-xs font-bold tracking-widest uppercase text-earth-50 bg-forest-900 px-3 py-1 shadow-[2px_2px_0px_0px_#1e2d1e]">
                   {FEATURED.tag}
                 </span>
-                <span className="font-mono text-xs text-earth-50/70 font-bold uppercase">{FEATURED.period}</span>
+                <span className="font-mono text-xs text-forest-900/70 font-bold uppercase">{FEATURED.period}</span>
               </div>
-              <a href={FEATURED.link} target="_blank" rel="noopener noreferrer" className="group/t inline-block mb-2">
-                <h3 className="font-display font-black text-5xl md:text-6xl text-earth-50 tracking-tighter leading-none hover:text-clay-500 transition-colors uppercase">
+              <a href={FEATURED.link} target="_blank" rel="noopener noreferrer" className="group/t inline-block mb-1">
+                <h3 className="font-display font-black text-5xl md:text-6xl text-forest-900 tracking-tighter leading-none hover:text-clay-500 transition-colors uppercase">
                   {FEATURED.title}
                 </h3>
               </a>
-              <p className="font-mono text-earth-50 font-bold uppercase tracking-wide border-b-2 border-earth-50/20 pb-4 mb-4">{FEATURED.subtitle}</p>
+              <p className="font-mono text-forest-900 font-bold uppercase tracking-wide mb-6">{FEATURED.subtitle}</p>
             </div>
             
-            <p className="font-mono text-earth-50/80 leading-relaxed text-sm mb-6">{FEATURED.description}</p>
+            <p className="font-mono text-forest-900/80 leading-relaxed text-sm lg:text-base mb-6 border-t-2 border-forest-900/20 pt-6">{FEATURED.description}</p>
             
-            <ul className="space-y-4 pt-4 border-t-2 border-earth-50/20 mb-8">
+            <ul className="space-y-4 mb-8">
               {FEATURED.bullets.map((b, i) => (
                 <li key={i} className="flex items-start gap-4">
-                  <span className="mt-[8px] w-2.5 h-2.5 bg-earth-50 shrink-0 shadow-[2px_2px_0px_0px_#c58361]" />
-                  <p className="font-mono text-sm text-earth-50/80 leading-relaxed">{b}</p>
+                  <span className="mt-[8px] w-2 h-2 bg-forest-900 shrink-0" />
+                  <p className="font-mono text-sm text-forest-900/80 leading-relaxed">{b}</p>
                 </li>
               ))}
             </ul>
 
             <div className="flex flex-wrap gap-2 mt-auto">
               {FEATURED.tech.map((t, i) => (
-                <span key={i} className="font-mono text-[10px] uppercase tracking-widest border border-earth-50/40 text-earth-50 px-2 py-1">
+                <span key={i} className="font-mono text-[10px] uppercase tracking-widest border border-forest-900/40 text-forest-900 px-2 py-1">
                   {t}
                 </span>
               ))}
@@ -122,12 +122,12 @@ export default function Projects() {
         {/* Grid — Sylly + AI Garbage */}
         <div className="grid md:grid-cols-2 gap-10">
           {PROJECTS.map((p, i) => (
-            <motion.div key={p.title} {...up(0.1 + i * 0.1)} className="flex flex-col bg-forest-900 border-2 border-earth-50 shadow-[6px_6px_0px_0px_#fdfbf7]">
+            <motion.div key={p.title} {...up(0.1 + i * 0.1)} className="flex flex-col border-[3px] border-forest-900 bg-earth-50 hover:bg-earth-100 transition-colors">
               <a
                 href={p.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block border-b-2 border-earth-50 p-2 bg-forest-800"
+                className="block border-b-[3px] border-forest-900 p-2 bg-earth-100"
               >
                 <img
                   src={p.image}
@@ -139,31 +139,31 @@ export default function Projects() {
                 />
               </a>
               <div className="p-6 md:p-8 flex flex-col flex-grow">
-                <div className="flex items-start justify-between gap-4 mb-4">
+                <div className="flex items-start justify-between gap-4 mb-4 border-b-2 border-forest-900/20 pb-4">
                   <div>
                     <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-block group/t mb-1">
-                      <h3 className="font-display font-black text-3xl md:text-4xl text-earth-50 tracking-tighter uppercase leading-none hover:text-clay-500 transition-colors">
+                      <h3 className="font-display font-black text-3xl md:text-4xl text-forest-900 tracking-tighter uppercase leading-none hover:text-clay-500 transition-colors">
                         {p.title}
                       </h3>
                     </a>
-                    <p className="font-mono text-xs text-earth-50 font-bold uppercase">{p.subtitle}</p>
+                    <p className="font-mono text-xs text-forest-900 font-bold uppercase">{p.subtitle}</p>
                   </div>
-                  <span className="font-mono text-xs text-earth-50/60 font-bold uppercase whitespace-nowrap">{p.period}</span>
+                  <span className="font-mono text-xs text-forest-900/60 font-bold uppercase whitespace-nowrap">{p.period}</span>
                 </div>
                 
                 {p.award && (
-                  <p className="font-mono text-[10px] font-bold tracking-widest uppercase text-forest-900 bg-clay-500 px-2 py-1 shadow-[2px_2px_0px_0px_#fdfbf7] inline-block self-start mb-4">
+                  <p className="font-mono text-[10px] font-bold tracking-widest uppercase text-earth-50 bg-forest-900 px-2 py-1 shadow-[2px_2px_0px_0px_#1e2d1e] inline-block self-start mb-4">
                     {p.award}
                   </p>
                 )}
                 
-                <p className="font-mono text-sm text-earth-50/80 leading-relaxed mb-6 border-t-2 border-earth-50/20 pt-4 flex-grow">
+                <p className="font-mono text-sm text-forest-900/80 leading-relaxed mb-6 pt-2 flex-grow">
                   {p.description}
                 </p>
                 
-                <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t-2 border-earth-50/20">
+                <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t-2 border-forest-900/20">
                   {p.tech.map((t, j) => (
-                    <span key={j} className="font-mono text-[10px] uppercase tracking-widest border border-earth-50/40 text-earth-50 px-2 py-1">
+                    <span key={j} className="font-mono text-[10px] uppercase tracking-widest border border-forest-900/40 text-forest-900 px-2 py-1">
                       {t}
                     </span>
                   ))}

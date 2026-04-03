@@ -10,18 +10,19 @@ const up = (delay = 0) => ({
 
 export default function About() {
   return (
-    <section id="about" className="py-28 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="about" className="py-28 bg-earth-50 border-b-[4px] border-forest-900">
+      
+      {/* Edge-to-Edge Brutalist Section Header */}
+      <motion.div {...up()} className="mb-16 border-b-[4px] border-forest-900 pb-6 px-6 md:px-12 w-full flex items-end justify-between">
+        <h2 className="font-display font-black text-6xl md:text-8xl text-forest-900 tracking-tighter uppercase leading-none">
+          About
+        </h2>
+        <p className="font-mono text-2xl md:text-4xl font-bold text-forest-900 leading-none">
+          01
+        </p>
+      </motion.div>
 
-        {/* Brutalist Section Header */}
-        <motion.div {...up()} className="mb-16 border-b-4 border-forest-900 pb-4 flex items-end justify-between">
-          <h2 className="font-display font-black text-6xl md:text-8xl text-forest-900 tracking-tighter uppercase leading-none">
-            About
-          </h2>
-          <p className="font-mono text-2xl md:text-4xl font-bold text-forest-900 leading-none">
-            01
-          </p>
-        </motion.div>
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
 
         <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
 
@@ -31,7 +32,7 @@ export default function About() {
               <img
                 src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68f98dc8386ebb34a4e98146/72d1e68b5_photo.jpg"
                 alt="William Delaosa"
-                className="w-full aspect-[4/5] object-cover border-2 border-forest-900 grayscale hover:grayscale-0 transition-all duration-700"
+                className="w-full aspect-[4/5] object-cover border-2 border-forest-900"
                 onError={(e) => {
                   e.target.src = 'https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?w=800&q=80';
                 }}

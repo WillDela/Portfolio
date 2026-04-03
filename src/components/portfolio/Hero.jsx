@@ -82,7 +82,7 @@ export default function Hero({ scrollToSection }) {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 pb-16 overflow-hidden bg-earth-50"
+      className="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden bg-earth-50 border-b-[4px] border-forest-900"
     >
       {/* The Realistic Oak Tree */}
       <div className="w-full max-w-[550px] mx-auto relative z-10 drop-shadow-xl mt-12 md:mt-0">
@@ -135,9 +135,9 @@ export default function Hero({ scrollToSection }) {
         </svg>
       </div>
 
-      {/* Bottom Content Area - Brutalist Layout */}
-      <div className="w-full text-center relative z-20 mt-16 border-t-4 border-forest-900 bg-earth-50 pt-16 pb-12">
-        <div className="max-w-5xl mx-auto px-6">
+      {/* Bottom Content Area - Continuous Full-Width Brutalist Layout */}
+      <div className="w-full text-center relative z-20 mt-auto border-t-[4px] border-forest-900 bg-earth-50 pt-16 pb-16 px-6">
+        <div className="max-w-5xl mx-auto">
           
           {/* Actual Name (Brutalist Display) */}
           <motion.h2

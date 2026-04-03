@@ -25,18 +25,19 @@ const up = (delay = 0) => ({
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-28 px-6 bg-earth-100 border-y-4 border-forest-900">
-      <div className="max-w-6xl mx-auto">
+    <section id="skills" className="py-28 bg-earth-50 border-b-[4px] border-forest-900">
+      
+      {/* Edge-to-Edge Brutalist Section Header */}
+      <motion.div {...up()} className="mb-16 border-b-[4px] border-forest-900 pb-6 px-6 md:px-12 w-full flex items-end justify-between">
+        <p className="font-mono text-2xl md:text-4xl font-bold text-forest-900 leading-none">
+          04
+        </p>
+        <h2 className="font-display font-black text-6xl md:text-8xl text-forest-900 tracking-tighter uppercase leading-none text-right">
+          Skills
+        </h2>
+      </motion.div>
 
-        {/* Brutalist Section Header */}
-        <motion.div {...up()} className="mb-16 border-b-4 border-forest-900 pb-4 flex items-end justify-between">
-          <p className="font-mono text-2xl md:text-4xl font-bold text-forest-900 leading-none">
-            04
-          </p>
-          <h2 className="font-display font-black text-6xl md:text-8xl text-forest-900 tracking-tighter uppercase leading-none text-right">
-            Skills
-          </h2>
-        </motion.div>
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
 
         <div className="grid md:grid-cols-3 gap-10 md:gap-16">
           {SKILLS.map((group, i) => (
