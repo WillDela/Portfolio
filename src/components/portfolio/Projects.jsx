@@ -86,7 +86,7 @@ export default function Projects() {
               <img
                 src={FEATURED.image}
                 alt={FEATURED.title}
-                className="w-full aspect-[4/3] object-cover border-2 border-forest-900"
+                className="w-full aspect-video object-cover border-2 border-forest-900"
               />
             </a>
 
