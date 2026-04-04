@@ -6,15 +6,22 @@ const FEATURED = {
   subtitle: 'AI Running Coach',
   period: 'Feb 2026 – Present',
   tag: 'In Development',
-  image: 'https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=900&q=80',
+  image: '/korsana-preview.png',
   description:
     'Full-stack AI coaching platform that syncs your Strava data and generates personalized race training plans — blending Gemini AI and personal analysis for adaptive, goal-specific coaching.',
   bullets: [
-    'Architecting in Golang (Gin) and React with Strava OAuth 2.0 for real-time activity sync, served by a RESTful API backed by PostgreSQL and Redis.',
-    'Building a race readiness dashboard with pace-to-goal comparison, weekly mileage tracking, and AI-driven coaching insights via the Gemini API.',
+    'Architecting in Go 1.21 (Gin) and React 18 with Strava OAuth 2.0 for real-time activity sync, served by a RESTful API backed by PostgreSQL (Supabase) and Redis (Upstash).',
+    'Building a race readiness dashboard with pace-to-goal comparison, weekly mileage tracking, and AI-driven coaching insights via the Gemini 2.0 Flash API.',
   ],
-  tech: ['Golang', 'Javascript', 'React', 'Gemini API', 'Strava OAuth 2.0', 'PostgreSQL', 'Redis'],
-  link: 'https://github.com/WillDela/Korsana',
+  tech: [
+    'React',
+    'Go 1.21 (Gin)',
+    'PostgreSQL (Supabase)',
+    'Redis (Upstash)',
+    'Gemini 2.0 Flash',
+    'Strava OAuth 2.0'
+  ],
+  link: 'https://korsana.run',
 };
 
 const PROJECTS = [
@@ -67,51 +74,60 @@ export default function Projects() {
         {/* Featured — Korsana (Wireframe Row) */}
         <motion.div
           {...up(0.1)}
-          className="grid md:grid-cols-2 border-b-[4px] border-forest-900 mb-20 pb-16"
+          className="border-b-[4px] border-forest-900 mb-20 pb-16"
         >
-          <a
-            href={FEATURED.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block border-2 border-forest-900 p-2 bg-earth-100 hover:bg-forest-900/5 transition-colors mb-8 md:mb-0 md:mr-10 xl:mr-16"
-          >
-            <img
-              src={FEATURED.image}
-              alt={FEATURED.title}
-              className="w-full aspect-[4/3] object-cover border-2 border-forest-900"
-            />
-          </a>
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center mb-12">
+            <a
+              href={FEATURED.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block lg:col-span-7 border-2 border-forest-900 p-2 bg-earth-100 hover:bg-forest-900/5 transition-colors mb-8 md:mb-0"
+            >
+              <img
+                src={FEATURED.image}
+                alt={FEATURED.title}
+                className="w-full aspect-[4/3] object-cover border-2 border-forest-900"
+              />
+            </a>
 
-          <div className="flex flex-col justify-center">
-            <div>
-              <div className="flex items-center justify-between mb-4 border-b-2 border-forest-900 pb-4">
-                <span className="font-mono text-xs font-bold tracking-widest uppercase text-forest-900 bg-moss-500 border border-forest-900 px-3 py-1 shadow-[2px_2px_0px_0px_#1e2d1e]">
-                  {FEATURED.tag}
-                </span>
-                <span className="font-mono text-xs text-forest-900/70 font-bold uppercase">{FEATURED.period}</span>
+            <div className="flex flex-col justify-center lg:col-span-5">
+              <div>
+                <div className="flex items-center justify-between mb-4 border-b-2 border-forest-900 pb-4">
+                  <span className="font-mono text-xs font-bold tracking-widest uppercase text-forest-900 bg-moss-500 border border-forest-900 px-3 py-1 shadow-[2px_2px_0px_0px_#1e2d1e]">
+                    {FEATURED.tag}
+                  </span>
+                  <span className="font-mono text-xs text-forest-900/70 font-bold uppercase">{FEATURED.period}</span>
+                </div>
+                <a href={FEATURED.link} target="_blank" rel="noopener noreferrer" className="group/t inline-block mb-1">
+                  <h3 className="font-display font-black text-5xl md:text-6xl text-forest-900 tracking-tighter leading-none hover:text-clay-500 transition-colors uppercase">
+                    {FEATURED.title}
+                  </h3>
+                </a>
+                <p className="font-mono text-forest-900 font-bold uppercase tracking-wide mb-6">{FEATURED.subtitle}</p>
               </div>
-              <a href={FEATURED.link} target="_blank" rel="noopener noreferrer" className="group/t inline-block mb-1">
-                <h3 className="font-display font-black text-5xl md:text-6xl text-forest-900 tracking-tighter leading-none hover:text-clay-500 transition-colors uppercase">
-                  {FEATURED.title}
-                </h3>
-              </a>
-              <p className="font-mono text-forest-900 font-bold uppercase tracking-wide mb-6">{FEATURED.subtitle}</p>
+              
+              <p className="font-mono text-forest-900/80 leading-relaxed text-sm lg:text-base mb-6 border-t-2 border-forest-900/20 pt-6">{FEATURED.description}</p>
+              
+              <ul className="space-y-4">
+                {FEATURED.bullets.map((b, i) => (
+                  <li key={i} className="flex items-start gap-4">
+                    <span className="mt-[8px] w-2 h-2 bg-forest-900 shrink-0" />
+                    <p className="font-mono text-sm text-forest-900/80 leading-relaxed">{b}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
-            
-            <p className="font-mono text-forest-900/80 leading-relaxed text-sm lg:text-base mb-6 border-t-2 border-forest-900/20 pt-6">{FEATURED.description}</p>
-            
-            <ul className="space-y-4 mb-8">
-              {FEATURED.bullets.map((b, i) => (
-                <li key={i} className="flex items-start gap-4">
-                  <span className="mt-[8px] w-2 h-2 bg-forest-900 shrink-0" />
-                  <p className="font-mono text-sm text-forest-900/80 leading-relaxed">{b}</p>
-                </li>
-              ))}
-            </ul>
+          </div>
 
-            <div className="flex flex-wrap gap-2 mt-auto">
+          {/* Sub-row: Massive Tech Stack Display */}
+          <div className="pt-8 border-t-[3px] border-dashed border-forest-900/40">
+            <p className="font-mono text-[11px] font-bold tracking-widest uppercase text-forest-900/70 mb-4 block">
+              Core Architecture & Tech Stack
+            </p>
+            <div className="flex flex-wrap gap-x-4 gap-y-4">
               {FEATURED.tech.map((t, i) => (
-                <span key={i} className="font-mono text-[10px] uppercase tracking-widest border border-forest-900/40 text-forest-900 px-2 py-1">
+                <span key={i} className="font-mono text-xs font-bold uppercase tracking-widest border-[2px] border-forest-900 bg-earth-50 shadow-[3px_3px_0px_0px_#1e2d1e] text-forest-900 px-3 py-2 flex items-center hover:translate-y-px hover:translate-x-px hover:shadow-[0px_0px_0px_0px_#1e2d1e] hover:bg-clay-500 hover:text-earth-50 hover:border-clay-500 transition-all cursor-default">
+                  <span className="w-1.5 h-1.5 shadow-[1px_1px_0px_0px_#1e2d1e] bg-moss-500 rounded-sm mr-2 shrink-0"></span>
                   {t}
                 </span>
               ))}
