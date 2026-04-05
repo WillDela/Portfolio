@@ -28,7 +28,7 @@ const PROJECTS = [
   {
     title: 'Sylly',
     subtitle: 'AI Academic Planner',
-    period: 'Oct 2025',
+    period: 'Sep 2025',
     award: 'Best Authentication — ShellHacks 2025 (245 teams)',
     image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68f98dc8386ebb34a4e98146/e8dd767e3_WhatsAppImage2025-10-22at222745_b62a362c.jpg',
     description:
