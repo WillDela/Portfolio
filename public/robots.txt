@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://williamdelaosa.vercel.app/sitemap.xml

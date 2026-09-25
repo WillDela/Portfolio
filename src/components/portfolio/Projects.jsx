@@ -1,191 +1,92 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
+import { projects } from '../../data/portfolio';
+import Media from './Media';
+import SectionHeading from './SectionHeading';
 
-const FEATURED = {
-  title: 'Korsana',
-  subtitle: 'AI Running Coach',
-  period: 'Feb 2026 – Present',
-  tag: 'In Development',
-  image: '/korsana-preview.png',
-  description:
-    'Full-stack AI coaching platform that syncs your Strava data and generates personalized race training plans — blending Gemini AI and personal analysis for adaptive, goal-specific coaching.',
-  bullets: [
-    'Architecting in Go 1.21 (Gin) and React 18 with Strava OAuth 2.0 for real-time activity sync, served by a RESTful API backed by PostgreSQL (Supabase) and Redis (Upstash).',
-    'Building a race readiness dashboard with pace-to-goal comparison, weekly mileage tracking, and AI-driven coaching insights via the Gemini 2.0 Flash API.',
-  ],
-  tech: [
-    'React',
-    'Go 1.21 (Gin)',
-    'PostgreSQL (Supabase)',
-    'Redis (Upstash)',
-    'Gemini 2.0 Flash',
-    'Strava OAuth 2.0'
-  ],
-  link: 'https://korsana.run',
-};
+function Stack({ items }) {
+  return <ul className="stack-list" aria-label="Technologies used">{items.map((item) => <li key={item}>{item}</li>)}</ul>;
+}
 
-const PROJECTS = [
-  {
-    title: 'Sylly',
-    subtitle: 'AI Academic Planner',
-    period: 'Sep 2025',
-    award: 'Best Authentication — ShellHacks 2025 (245 teams)',
-    image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68f98dc8386ebb34a4e98146/e8dd767e3_WhatsAppImage2025-10-22at222745_b62a362c.jpg',
-    description:
-      'Converts syllabus PDFs into Google Calendar events automatically. Auth0 + Gemini AI + Google Calendar API wired into a single workflow — won Best Authentication at ShellHacks against 245 teams.',
-    tech: ['React', 'TypeScript', 'Node.js', 'Auth0', 'Google Cloud', 'PostgreSQL'],
-    link: 'https://devpost.com/software/sylly',
-  },
-  {
-    title: 'AI Garbage Classifier',
-    subtitle: 'Deep Learning System',
-    period: 'Apr – May 2025',
-    image: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=800&q=80',
-    description:
-      '83.4% test accuracy across 12 waste categories on 15,515 images. CNN with 9.7M parameters, progressive dropout, batch normalization, and a modular prediction API.',
-    tech: ['Python', 'TensorFlow', 'Keras', 'NumPy', 'Scikit-learn'],
-    link: 'https://github.com/WillDela/AI_Garbage_Classification_System',
-  },
-];
+function ProjectCard({ project }) {
+  const links = project.links ?? [{ label: project.linkLabel, url: project.url }];
 
-const up = (delay = 0) => ({
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.7, delay, ease: 'easeOut' },
-});
+  return (
+    <article className="project-card">
+      <div className={`project-card__image-wrap${project.imageFit === 'contain' ? ' project-card__image-wrap--contain' : ''}${project.imageTheme === 'dark' ? ' project-card__image-wrap--dark' : ''}`}>
+        <Media src={project.image} alt={project.imageAlt} label={project.name} className={`project-card__image${project.imageFit === 'contain' ? ' project-card__image--contain' : ''}`} />
+        {project.imageLabel && <span className="project-card__image-note">{project.imageLabel}</span>}
+      </div>
+      <div className="project-card__body">
+        <div className="project-card__topline">
+          <span className="eyebrow">{project.type}</span>
+          {project.period && <span>{project.period}</span>}
+        </div>
+        <h3>{project.name}</h3>
+        {project.award && <p className="award-tag">{project.award}</p>}
+        {project.status && <p className="project-status">{project.status}</p>}
+        <p>{project.summary}</p>
+        {project.detail && <p>{project.detail}</p>}
+        {project.stack?.length > 0 && <Stack items={project.stack} />}
+        <div className="project-card__links">
+          {links.map((link) => (
+            <a className="text-link" href={link.url} target="_blank" rel="noopener noreferrer" key={link.url}>
+              {link.label} <ArrowUpRight size={18} aria-hidden="true" />
+            </a>
+          ))}
+        </div>
+      </div>
+    </article>
+  );
+}
 
 export default function Projects() {
+  const { korsana } = projects;
+  const selectedProjects = [
+    projects.legalease,
+    projects.pawlinawalk,
+    projects.sylly,
+    projects.travelmaxx,
+    projects.myalbumlist,
+    projects.classifier,
+  ];
+  const total = selectedProjects.length + 1;
+
   return (
-    <section id="projects" className="py-28 border-b-[4px] border-forest-900">
-      
-      {/* Edge-to-Edge Brutalist Section Header */}
-      <motion.div {...up()} className="mb-16 border-b-[4px] border-forest-900 pb-6 px-6 md:px-12 w-full flex items-end justify-between">
-        <h2 className="font-display font-black text-6xl md:text-8xl text-forest-900 tracking-tighter uppercase leading-none">
-          Projects
-        </h2>
-        <p className="font-mono text-2xl md:text-4xl font-bold text-clay-500 leading-none">
-          03
-        </p>
-      </motion.div>
+    <section id="projects" className="section section--cream section-anchor" aria-labelledby="projects-title">
+      <div className="container">
+        <SectionHeading
+          id="projects-title"
+          eyebrow="02 / Selected work"
+          title="Ideas made real."
+          intro="Projects where product thinking, engineering, and the people on the other side of the screen meet."
+        />
 
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
-
-        {/* Featured — Korsana (Wireframe Row) */}
-        <motion.div
-          {...up(0.1)}
-          className="border-b-[4px] border-forest-900 mb-20 pb-16"
-        >
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center mb-12">
-            <a
-              href={FEATURED.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block lg:col-span-7 border-2 border-forest-900 p-2 bg-earth-100 hover:bg-forest-900/5 transition-colors mb-8 md:mb-0"
-            >
-              <img
-                src={FEATURED.image}
-                alt={FEATURED.title}
-                className="w-full aspect-video object-cover border-2 border-forest-900"
-              />
+        <article className="featured-project">
+          <div className="featured-project__visual">
+            <Media src={korsana.image} alt={korsana.imageAlt} label="Korsana" className="featured-project__image" />
+            <span className="featured-project__number" aria-hidden="true">01 / {String(total).padStart(2, '0')}</span>
+          </div>
+          <div className="featured-project__content">
+            <div className="featured-project__topline">
+              <span className="pill pill--live"><span className="status-dot" aria-hidden="true" />{korsana.status}</span>
+              <span>{korsana.period}</span>
+            </div>
+            <p className="eyebrow">{korsana.type}</p>
+            <h3>{korsana.name}</h3>
+            <p className="featured-project__summary">{korsana.summary}</p>
+            <ul className="detail-list">
+              {korsana.details.map((detail) => <li key={detail}>{detail}</li>)}
+            </ul>
+            <Stack items={korsana.stack} />
+            <a className="button button--outline" href={korsana.url} target="_blank" rel="noopener noreferrer">
+              Open live product <ArrowUpRight size={18} aria-hidden="true" />
             </a>
-
-            <div className="flex flex-col justify-center lg:col-span-5">
-              <div>
-                <div className="flex items-center justify-between mb-4 border-b-2 border-forest-900 pb-4">
-                  <span className="font-mono text-xs font-bold tracking-widest uppercase text-forest-900 bg-moss-500 border border-forest-900 px-3 py-1 shadow-[2px_2px_0px_0px_#1e2d1e]">
-                    {FEATURED.tag}
-                  </span>
-                  <span className="font-mono text-xs text-forest-900/70 font-bold uppercase">{FEATURED.period}</span>
-                </div>
-                <a href={FEATURED.link} target="_blank" rel="noopener noreferrer" className="group/t inline-block mb-1">
-                  <h3 className="font-display font-black text-5xl md:text-6xl text-forest-900 tracking-tighter leading-none hover:text-clay-500 transition-colors uppercase">
-                    {FEATURED.title}
-                  </h3>
-                </a>
-                <p className="font-mono text-forest-900 font-bold uppercase tracking-wide mb-6">{FEATURED.subtitle}</p>
-              </div>
-              
-              <p className="font-mono text-forest-900/80 leading-relaxed text-sm lg:text-base mb-6 border-t-2 border-forest-900/20 pt-6">{FEATURED.description}</p>
-              
-              <ul className="space-y-4">
-                {FEATURED.bullets.map((b, i) => (
-                  <li key={i} className="flex items-start gap-4">
-                    <span className="mt-[8px] w-2 h-2 bg-forest-900 shrink-0" />
-                    <p className="font-mono text-sm text-forest-900/80 leading-relaxed">{b}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
+        </article>
 
-          {/* Sub-row: Massive Tech Stack Display */}
-          <div className="pt-8 border-t-[3px] border-dashed border-forest-900/40">
-            <p className="font-mono text-[11px] font-bold tracking-widest uppercase text-forest-900/70 mb-4 block">
-              Core Architecture & Tech Stack
-            </p>
-            <div className="flex flex-wrap gap-x-4 gap-y-4">
-              {FEATURED.tech.map((t, i) => (
-                <span key={i} className="font-mono text-xs font-bold uppercase tracking-widest border-[2px] border-forest-900 bg-earth-50 shadow-[3px_3px_0px_0px_#1e2d1e] text-forest-900 px-3 py-2 flex items-center hover:translate-y-px hover:translate-x-px hover:shadow-[0px_0px_0px_0px_#1e2d1e] hover:bg-clay-500 hover:text-earth-50 hover:border-clay-500 transition-all cursor-default">
-                  <span className="w-1.5 h-1.5 shadow-[1px_1px_0px_0px_#1e2d1e] bg-moss-500 rounded-sm mr-2 shrink-0"></span>
-                  {t}
-                </span>
-              ))}
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Grid — Sylly + AI Garbage */}
-        <div className="grid md:grid-cols-2 gap-10">
-          {PROJECTS.map((p, i) => (
-            <motion.div key={p.title} {...up(0.1 + i * 0.1)} className="flex flex-col border-[3px] border-forest-900 bg-earth-50 hover:bg-[#e8decb] hover:border-clay-500 transition-colors">
-              <a
-                href={p.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block border-b-[3px] border-forest-900 p-2 bg-[#e8decb]/50"
-              >
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  className="w-full aspect-[16/9] object-cover border-2 border-forest-900 hover:opacity-90 transition-opacity"
-                  onError={(e) => {
-                    e.target.src = 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80';
-                  }}
-                />
-              </a>
-              <div className="p-6 md:p-8 flex flex-col flex-grow">
-                <div className="flex items-start justify-between gap-4 mb-4 border-b-2 border-forest-900/20 pb-4">
-                  <div>
-                    <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-block group/t mb-1">
-                      <h3 className="font-display font-black text-3xl md:text-4xl text-forest-900 tracking-tighter uppercase leading-none hover:text-clay-500 transition-colors">
-                        {p.title}
-                      </h3>
-                    </a>
-                    <p className="font-mono text-xs text-forest-900 font-bold uppercase">{p.subtitle}</p>
-                  </div>
-                  <span className="font-mono text-xs text-forest-900/60 font-bold uppercase whitespace-nowrap">{p.period}</span>
-                </div>
-                
-                {p.award && (
-                  <p className="font-mono text-[10px] font-bold tracking-widest uppercase text-earth-50 bg-clay-500 border border-forest-900 px-2 py-1 shadow-[2px_2px_0px_0px_#1e2d1e] inline-block self-start mb-4">
-                    {p.award}
-                  </p>
-                )}
-                
-                <p className="font-mono text-sm text-forest-900/80 leading-relaxed mb-6 pt-2 flex-grow">
-                  {p.description}
-                </p>
-                
-                <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t-2 border-forest-900/20">
-                  {p.tech.map((t, j) => (
-                    <span key={j} className="font-mono text-[10px] uppercase tracking-widest border border-forest-900/40 text-forest-900 px-2 py-1">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
+        <div className="project-grid">
+          {selectedProjects.map((project) => (
+            <ProjectCard key={project.name} project={project} />
           ))}
         </div>
       </div>
