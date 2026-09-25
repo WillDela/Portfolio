@@ -17,7 +17,7 @@ export const experience = {
     period: 'May – Aug 2026',
     feature: 'Conditional Formatting for Datadog Sheets',
     demoUrl: 'https://youtu.be/1eHGNh4PA7M',
-    summary: 'Fully owned a top-five customer requested feature from the frontend to the backend and worked with Product, Design, and Engineering team members on the technical approach. I had the opportunity to learn so much about what being a software enfgineer means and how to work with a team to ship a product that will be used by thousands of customers for years to come.',
+    summary: 'Fully owned a top-five customer requested feature from the frontend to the backend and worked with Product, Design, and Engineering team members on the technical approach. I had the opportunity to learn so much about what being a software engineer really means and how to work with a team to ship a product that will be used by thousands of customers and frequently.',
     details: [
       'Broke an ambiguous full-stack project into a clear technical approach and shipped a production release with zero rollbacks.',
       'Built a reactive rule engine that separates change detection from style evaluation and tested complex formatting scenarios.',
