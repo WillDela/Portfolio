@@ -42,6 +42,7 @@ function ProjectCard({ project }) {
 export default function Projects() {
   const { korsana } = projects;
   const selectedProjects = [
+    projects.hiremealready,
     projects.legalease,
     projects.pawlinawalk,
     projects.sylly,
