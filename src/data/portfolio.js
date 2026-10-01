@@ -55,6 +55,20 @@ export const projects = {
     ],
     stack: ['Go / Gin', 'React', 'Gemini API', 'Strava OAuth 2.0'],
   },
+  hiremealready: {
+    name: 'HireMeAlready',
+    type: 'Mock interview platform',
+    period: 'ShellHacks X 2026',
+    image: '/hiremealready-preview.png',
+    imageAlt: 'HireMeAlready landing page with the headline “Rehearse the interview you’re actually walking into” and a sample company-specific interview question scored 4.2 out of 5',
+    summary: 'Company-specific mock interviews with a voice AI interviewer or a matched peer, grounded in verified interview questions scraped for the role.',
+    detail: 'Led backend and infrastructure: database, auth, APIs, resume-similarity live matching, and self-hosted WebRTC video calls, with the full stack deployed via Docker on DigitalOcean.',
+    stack: ['Next.js', 'TypeScript', 'Postgres / pgvector', 'WebRTC', 'Docker'],
+    links: [
+      { label: 'Open live product', url: 'https://hiremealready.study' },
+      { label: 'View code', url: 'https://github.com/WillDela/HireMeAlready' },
+    ],
+  },
   sylly: {
     name: 'Sylly',
     type: 'AI academic planner',
